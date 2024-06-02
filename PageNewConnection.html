@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <p><a href="PageHome.html">back</a></p>
+        <h4>Application for New Connection</h4>
+        <strong><p>**Application and Verification charges will apply**</p></strong>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Application</legend>
+            <form action="#" method="post">
+                <strong>User details</strong> <br>
+                <label for="Name">Name: </label>
+                <input type="text" name="Name" required pattern="[a-zA-z]+([a-zA-z]\s)*" minlength="6" maxlength="20"><br>
+                
+                <label for="MobileNumber">Mobile Number: </label>
+                <input type="number" name="MobileNumber" required pattern="[6-9]+[0-9]*" minlength="10" maxlength="10"><br>
+
+                <label for="AadharNumber">Aadhar Number: </label>
+                <input type="number" name="AadharNumber" required pattern="[1-9]{1}{0-9}{11}"><br>
+
+                <label for="Photo">Upload Photo: </label>
+                <input type="file" name="Photo" required><br>
+
+                <label for="AadharCopy">Upload Aadhar: </label>
+                <input type="file" name="AadharCopy" required><br>
+
+                <label for="Dob">Date of Birth: </label>
+                <input type="date" name="Dob" required>
+
+                <fieldset>
+                    <legend>Address</legend>
+                    <input type="text" name="Address-Doorno" placeholder="Door No., Flat No." required><br>
+                    <input type="text" name="Address-Street" placeholder="Street name, Village, Town" required><br>
+                    <input type="text" name="Address-City" placeholder="City" required><br>
+                    <input type="number" name="Address-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>      
+                </fieldset>
+
+                <label for="FName">Father Name: </label>
+                <input type="text" name="FName" required pattern="[a-zA-z]+([a-zA-z]\s)*" minlength="6" maxlength="20"><br>
+
+                <label for="MName">Mother Name: </label>
+                <input type="text" name="MName" required pattern="[a-zA-z]+([a-zA-z]\s)*" minlength="6" maxlength="20"><br>
+
+                <label for="FatherAadharNumber">Father Aadhar Number: </label>
+                <input type="number" name="FatherAadharNumber" required pattern="[1-9]{1}{0-9}{11}"><br>
+
+                <label for="MotherAadharNumber">Mother Aadhar Number: </label>
+                <input type="number" name="MotherAadharNumber" required pattern="[1-9]{1}{0-9}{11}"><br>
+
+                <hr>
+
+                <strong>Connection Details</strong><br>
+                <input type="checkbox" name="connaddress"><label for="connaddress">Same as User address</label>
+                <fieldset>
+                    <legend>Address</legend>
+                    <input type="text" name="Address-Doorno" placeholder="Door No., Flat No." required><br>
+                    <input type="text" name="Address-Street" placeholder="Street name, Village, Town" required><br>
+                    <input type="text" name="Address-City" placeholder="City" required><br>
+                    <input type="number" name="Address-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>      
+                </fieldset>
+
+                <label for="typeOfConn">Connection type: </label>
+                <select name="typeOfConn" required>
+                    <option value="SinglePhase">Single Phase / HouseHold</option>
+                    <option value="ThreePhase">Three phase / Commercial</option>
+                </select>
+                <br>
+
+                <label for="DateforVer">Choose the date for Verification: </label>
+                <input type="date" name="DateforVer" required><br>
+
+                <button type="submit" onclick="confirm(`you are making payment`)">Schedule Verification</button>
+            </form>
+        </fieldset>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
