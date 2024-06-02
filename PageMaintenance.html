@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        Maintenance
+    </header>
+    <main>
+        <details open>
+            <summary>Apply for Maintenance</summary>
+            <strong>Maintenance charges do apply. Commercial Maintenance takes Longer time to Process.</strong>
+            <form action="#">
+                <label for="SelectConnection">Connection: </label>
+                <select name="SelectConnection" id="SelectConnection">
+                    <option value="Connection1">Connection1</option>
+                    <option value="Connection2">Connection2</option>
+                    <option value="Connection3">Connection3</option>
+                </select>
+                <br>
+                <label for="DateMaintenance">Choose a Date for Maintenance: </label>
+                <input type="date" name="DateMaintenance"><br>
+                <button type="submit" onclick="alert(`You are going to make a payment`)">Apply and Pay</button>
+            </form>
+            
+        </details>
+        <details>
+            <summary>Cancel Maintenance</summary>
+            <strong>Note: The cancellation of appointed Maintenance will result in deduction of charges</strong>
+            <ul>
+                <li>
+                    Maintenance : Add a Connection to Room.
+                    <button type="button" onclick="alert(`You are cancelling the Maintenance`)">cancel</button>
+                </li>
+                <li>
+                    Maintenance : Regular check.
+                    <button type="button" onclick="alert(`You are cancelling the Maintenance`)">cancel</button>
+                </li>
+            </ul>
+        </details>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
