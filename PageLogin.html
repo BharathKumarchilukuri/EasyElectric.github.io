@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h4>Login to your account</h4>
+    </header>
+    <main>
+        <form action="PageHome.html">
+            <label for="username">Username</label>
+            <input type="text" name="username" minlength="4" maxlength="20" required>
+            <br>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" minlength="6" maxlength="20" required>
+            <br>
+            <div>
+                <div>
+                    <label for="captcha">CAPTCHA</label>
+                    <input type="text" name="captcha" id="captcha" pattern="HREAM">
+                </div>
+                <div>
+                    <span><s><sub>HREAM</sub></s></span>
+                    <button>regenerate</button>
+                </div>
+            </div>
+            <button type="submit">Login</button>
+            <button><a href="PageSignUp.html">Register</a></button>
+        </form>
+    </main>
+    <footer>
+        All rights reserved
+    </footer>
+</body>
+</html>
+
+<!-- 
+    Need to add:
+    --styling
+    --functionality
+
+    Make changes:
+    #add design
+    #add renegerate funtionality for CAPTCHA
+    #add verification for CAPTCHA
+
+    Future Changes:
+    #add connection to backend for account verification
+ -->
