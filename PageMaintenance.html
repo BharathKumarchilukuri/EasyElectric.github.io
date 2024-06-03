@@ -74,11 +74,11 @@
 	<main>
 
         <div class="container">
-            <button class="btn btn-primary" onclick="addConnection()">
-                Add Connection
+            <button class="btn btn-primary" onclick="addMaintenance()">
+                Add Maintenance
             </button>
-            <button class="btn btn-primary" onclick="cancelConnection()">
-                Cancel Connection
+            <button class="btn btn-primary" onclick="cancelMaintenance()">
+                Cancel Maintenance
             </button>
         </div>
 
@@ -143,14 +143,14 @@
         let addCon = document.getElementById("DivAddConnection");
         let cancelCon = document.getElementById("DivCancelConnection");
         console.log(cancelCon);
-        function addConnection(){
+        function addMaintenance(){
             cancelCon.classList.remove("d-block");
             cancelCon.classList.add("d-none");
             addCon.classList.remove("d-none");
             addCon.classList.add("d-block");
         }
 
-        function cancelConnection(){
+        function cancelMaintenance(){
             addCon.classList.remove("d-block");
             addCon.classList.add("d-none");
             cancelCon.classList.remove("d-none");
