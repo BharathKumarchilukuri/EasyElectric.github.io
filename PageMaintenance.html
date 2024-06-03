@@ -1,50 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Log In</title>
 </head>
 <body>
+    
     <header>
-        <a href="PageServices.html">back</a><br>
-        <h4>Maintenance</h4>
+        <nav class="navbar navbar-expand-lg bg-dark p-2">
+            <div>
+                <!-- EE- Easy Electric -->
+                <h1 class="navbar-brand bg-light text-bold p-2 m-1">EE<sub> Electric services made Easy</sub></h1>
+            </div>
+            <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageHome.html">Home</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageManageConnections.html">Manage Connections</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PagePayBill.html">Pay Bill</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PagePaymentHistory.html">Payment History</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageAlerts.html">Alerts</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageUserAccount.html">Account</a>
+                    </li>
+
+                    <li class="nav-item dropdown bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Other
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="PageServices.html">Services</a>
+                          <a class="dropdown-item" href="PageMaintenance.html">Maintenance</a>
+                          <a class="dropdown-item" href="PageFeedBack.html">FeedBack / Complain</a>
+                          <a class="dropdown-item" href="PagShop.html">Shop</a>
+                          <a class="dropdown-item" href="PageCommercialPermit.html">Commercial Permit</a>
+                        </div>
+                      </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageRegister.html">Register</a>
+                    </li>
+
+                    <li class="nav-item bg-danger rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="Welcome.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </header>
-    <main>
-        <details open>
-            <summary>Apply for Maintenance</summary>
-            <strong>Maintenance charges do apply. Commercial Maintenance takes Longer time to Process.</strong>
-            <form action="#">
-                <label for="SelectConnection">Connection: </label>
-                <select name="SelectConnection" id="SelectConnection">
-                    <option value="Connection1">Connection1</option>
-                    <option value="Connection2">Connection2</option>
-                    <option value="Connection3">Connection3</option>
-                </select>
-                <br>
-                <label for="DateMaintenance">Choose a Date for Maintenance: </label>
-                <input type="date" name="DateMaintenance"><br>
-                <button type="submit" onclick="alert(`You are going to make a payment`)">Apply and Pay</button>
+    <main class="mt-5 mb-5">
+	<main>
+
+        <div class="container">
+            <button class="btn btn-primary" onclick="addConnection()">
+                Add Connection
+            </button>
+            <button class="btn btn-primary" onclick="cancelConnection()">
+                Cancel Connection
+            </button>
+        </div>
+
+        <div id="DivAddConnection" class="d-none container border border-2 rounded m-2 p-0">
+            <p class="p-1 m-1">
+                <strong><sub class="text-danger">Maintenance charges do apply. Commercial Maintenance takes Longer time to Process.</sub></strong>
+            </p>
+            <hr>
+            <form class="form p-2 m-2" action="#">
+                <div class="form-group m-2">
+                    <label class="form-label" for="SelectConnection">Connection: </label>
+                    <select class="form-control" name="SelectConnection" id="SelectConnection">
+                        <option value="Connection1">Connection1 - HouseHold</option>
+                        <option value="Connection2">Connection2 - Commercial</option>
+                        <option value="Connection3">Connection3 - Commercial</option>
+                    </select>
+                </div>
+                <div class="form-group m-2">
+                    <label class="form-label" for="DateMaintenance">Choose a Date for Maintenance: </label>
+                    <input class="form-control input-group-date" type="date" name="DateMaintenance">
+                </div>
+                <div class="form-group m-2">
+                    <button class="btn btn-warning form-control" type="submit" onclick="alert(`You are going to make a payment`)">Apply and Pay</button>
+                </div>
             </form>
-            
-        </details>
-        <details>
-            <summary>Cancel Maintenance</summary>
-            <strong>Note: The cancellation of appointed Maintenance will result in deduction of charges</strong>
-            <ul>
-                <li>
-                    Maintenance : Add a Connection to Room.
-                    <button type="button" onclick="alert(`You are cancelling the Maintenance`)">cancel</button>
+        </div>
+
+        <div id="DivCancelConnection" class="d-none container border border-2 rounded m-2 p-0">
+            <p class="p-1 m-1">
+                <strong>
+                    <sub class="text-danger">Note: The cancellation of appointed Maintenance will result in deduction of charges</sub>
+                </strong>
+            </p>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <ul class="list-group">
+                        <li class="list-group-item"><p>Maintenance : Add a Connection to Room.</p></li>
+                        <li class="list-group-item"><p>Connection : Connection1</p></li>
+                        <li class="list-group-item"><p>Date : 12/03/2024</p></li>
+                        <li class="list-group-item"><p>status : Under Consideration</p></li>
+                    </ul>
+                    <button class="btn btn-danger mt-2" type="button" onclick="alert(`You are cancelling the Maintenance`)">cancel</button>
                 </li>
-                <li>
-                    Maintenance : Regular check.
-                    <button type="button" onclick="alert(`You are cancelling the Maintenance`)">cancel</button>
+                <li class="list-group-item">
+                    <ul class="list-group">
+                        <li class="list-group-item"><p>Maintenance : Regular Check</p></li>
+                        <li class="list-group-item"><p>Connection : Connection1</p></li>
+                        <li class="list-group-item"><p>Date : 12/03/2024</p></li>
+                        <li class="list-group-item"><p>status : Under Consideration</p></li>
+                    </ul>
+                    <button class="btn btn-danger mt-2" type="button" onclick="alert(`You are cancelling the Maintenance`)">cancel</button>
                 </li>
             </ul>
-        </details>
+        </div>
     </main>
-    <footer>
-
+    </main>
+    <footer class="d-fixed text-center mb-0">
+        All rights reserved
     </footer>
+
+    <script>
+        let addCon = document.getElementById("DivAddConnection");
+        let cancelCon = document.getElementById("DivCancelConnection");
+        console.log(cancelCon);
+        function addConnection(){
+            cancelCon.classList.remove("d-block");
+            cancelCon.classList.add("d-none");
+            addCon.classList.remove("d-none");
+            addCon.classList.add("d-block");
+        }
+
+        function cancelConnection(){
+            addCon.classList.remove("d-block");
+            addCon.classList.add("d-none");
+            cancelCon.classList.remove("d-none");
+            cancelCon.classList.add("d-block");
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
