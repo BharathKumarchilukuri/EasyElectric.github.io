@@ -74,14 +74,13 @@
     <main class="container p-2">
         <form action="#" class="form">
             <ul class="list-group">
-                <li class="list-group-item bg-primary">
+                <li class="list-group-item bg-light">
                     <h4 class="h4">Apply for a new Connection</h4>
                     <small class="text-danger">**All fields are necessary</small>
                 </li>
                 <li class="list-group-item m-0 p-0">
-                    
-                    <div class="w-100 bg-info p-3">
-                        <a href="#UserDetails" class="text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="UserDetails">User Details</a>
+                    <div class="w-100 bg-info p-3 row m-0">
+                        <a href="#UserDetails" class="col-12 w-100 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="UserDetails">User Details</a>
                     </div>
                     
                     <div class="collapse p-2" id="UserDetails">
@@ -147,8 +146,8 @@
                     </div>
                 </li>
                 <li class="list-group-item m-0 p-0">
-                    <div class="w-100 bg-info p-3">
-                        <a href="#FamilyDetails" class="text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="FamilyDetails">Family Details</a>
+                    <div class="w-100 bg-info p-3 row m-0">
+                        <a href="#FamilyDetails" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="FamilyDetails">Family Details</a>
                     </div>
 
                     <div class="collapse p-3" id="FamilyDetails">
@@ -175,8 +174,8 @@
                     </div>
                 </li>
                 <li class="list-group-item m-0 p-0">
-                    <div class="w-100 bg-info p-3">
-                        <a href="#ConnectionDetails" class="text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ConnectionDetails">Connection Details</a>
+                    <div class="w-100 bg-info p-3 row m-0">
+                        <a href="#ConnectionDetails" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ConnectionDetails">Connection Details</a>
                     </div>
                     <div class="collapse p-3" id="ConnectionDetails">
                         <div class="form-group">
@@ -230,7 +229,7 @@
                     </div>
                 </li>
             </ul>
-            <button class="btn btn-warning" type="submit" onclick="confirm(`you are making payment`)">Schedule Verification</button>
+            <button class="btn btn-warning my-2" type="submit" onclick="confirm(`you are making payment`)">Schedule Verification</button>
         </form>
     </main>
     <footer class="d-fixed text-center p-2 bg-dark text-light">
