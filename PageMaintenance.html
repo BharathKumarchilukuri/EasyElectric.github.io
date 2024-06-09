@@ -20,7 +20,7 @@
             <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
                         <a class="nav-link" href="PageHome.html">Home</a>
@@ -57,8 +57,9 @@
                           <a class="dropdown-item" href="PagShop.html">Shop</a>
                           <a class="dropdown-item" href="PageCommercialPermit.html">Commercial Permit</a>
                         </div>
-                      </li>
-
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
                     <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
                         <a class="nav-link" href="PageRegister.html">Register</a>
                     </li>
@@ -70,19 +71,17 @@
             </div>
         </div>
     </header>
-    <main class="mt-5 mb-5">
-	<main>
-
+    <main class="mt-5 mb-5 container">
         <div class="container">
-            <button class="btn btn-primary" onclick="addMaintenance()">
+            <a class="btn btn-primary" href="#DivAddConnection" data-bs-toggle="collapse" aria-expanded="false" aria-controls="DivAddConnection">
                 Add Maintenance
-            </button>
-            <button class="btn btn-primary" onclick="cancelMaintenance()">
+            </a>
+            <a class="btn btn-primary" href="#DivCancelConnection" data-bs-toggle="collapse" aria-expanded="false" aria-controls="DivCancelConnection">
                 Cancel Maintenance
-            </button>
+            </a>
         </div>
 
-        <div id="DivAddConnection" class="d-none container border border-2 rounded m-2 p-0">
+        <div id="DivAddConnection" class="container collapse border border-2 rounded m-2 p-0">
             <p class="p-1 m-1">
                 <strong><sub class="text-danger">Maintenance charges do apply. Commercial Maintenance takes Longer time to Process.</sub></strong>
             </p>
@@ -106,7 +105,7 @@
             </form>
         </div>
 
-        <div id="DivCancelConnection" class="d-none container border border-2 rounded m-2 p-0">
+        <div id="DivCancelConnection" class="container collapse border border-2 rounded m-2 p-0">
             <p class="p-1 m-1">
                 <strong>
                     <sub class="text-danger">Note: The cancellation of appointed Maintenance will result in deduction of charges</sub>
@@ -134,32 +133,26 @@
             </ul>
         </div>
     </main>
-    </main>
-    <footer class="d-fixed text-center mb-0">
+    <footer class="d-fixed text-center p-2 bg-dark text-light">
         All rights reserved
     </footer>
 
     <script>
-        let addCon = document.getElementById("DivAddConnection");
-        let cancelCon = document.getElementById("DivCancelConnection");
-        console.log(cancelCon);
-        function addMaintenance(){
-            cancelCon.classList.remove("d-block");
-            cancelCon.classList.add("d-none");
-            addCon.classList.remove("d-none");
-            addCon.classList.add("d-block");
-        }
-
-        function cancelMaintenance(){
-            addCon.classList.remove("d-block");
-            addCon.classList.add("d-none");
-            cancelCon.classList.remove("d-none");
-            cancelCon.classList.add("d-block");
-        }
+        // let addCon = document.getElementById("DivAddConnection");
+        // let cancelCon = document.getElementById("DivCancelConnection");
+        // function toggleMaintenance(maintenance){
+        //     if(maintenance === "add"){
+        //         cancelCon.setAttribute("aria-expanded","false");
+        //         addCon.setAttribute("aria-expanded","true")
+        //         console.log(addCon.getAttribute("aria-expanded"));
+        //     } else if(maintenance === "cancel") {
+        //         addCon.setAttribute("aria-expanded","false");
+        //         cancelCon.setAttribute("aria-expanded","true");
+        //     }
+        // }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
