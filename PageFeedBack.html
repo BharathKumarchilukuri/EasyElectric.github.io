@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Log In</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-xl bg-dark p-2">
+            <div>
+                <!-- EE- Easy Electric -->
+                <h1 class="navbar-brand bg-light text-bold p-2 m-1">EE<sub> Electric services made Easy</sub></h1>
+            </div>
+            <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageHome.html">Home</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageManageConnections.html">Manage Connections</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PagePayBill.html">Pay Bill</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PagePaymentHistory.html">Payment History</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageAlerts.html">Alerts</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageUserAccount.html">Account</a>
+                    </li>
+
+                    <li class="nav-item dropdown bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Other
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="PageServices.html">Services</a>
+                          <a class="dropdown-item" href="PageMaintenance.html">Maintenance</a>
+                          <a class="dropdown-item" href="PageFeedBack.html">FeedBack / Complain</a>
+                          <a class="dropdown-item" href="PagShop.html">Shop</a>
+                          <a class="dropdown-item" href="PageCommercialPermit.html">Commercial Permit</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageRegister.html">Register</a>
+                    </li>
+
+                    <li class="nav-item bg-danger rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="Welcome.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="container p-3">
+	    <ul class="list-group">
+            <li class="list-group-item m-0 p-0">
+                <div class="bg-light w-100 p-2 m-0">
+                    <a href="#complaint" class="text-decoration-none p-1" data-bs-toggle="collapse" aria-expanded="false" aria-controls="complaint">Register a Complaint</a>
+                </div>
+                <div class="collapse bg-none m-2" id="complaint">
+                    <div class="w-100 bg-danger text-light rounded p-2">
+                        Getting back to you might take 12 hours to 2 days. Please hold back patiently.
+                    </div>
+                    <form action="#" class="form">
+                        <div class="form-group">
+                            <label for="Connections" class="form-label">Pick a Connection</label>
+                            <select class="form-select" name="Connections">
+                                <option value="Connection01">Connection 01</option>
+                                <option value="Connection02">Connection 02</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Reason" class="form-label">Reason</label>
+                            <input type="text" class="form-control" name="Reason" placeholder="Mention your reason here">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="Detailed" class="form-label">Reason</label>
+                            <textarea type="text" class="form-control" name="Detailed" placeholder="Give a brief description about the issue"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="list-group-item m-0 p-0">
+                <div class="bg-light w-100 p-2 m-0">
+                    <a href="#feedback" class="text-decoration-none p-1" data-bs-toggle="collapse" aria-expanded="false" aria-controls="feedback">Give a FeedBack</a>
+                </div>
+                <div class="collapse bg-none m-2" id="feedback">
+                    <form action="#" class="form">
+                        <div class="form-group">
+                            <label for="experience" class="form-label">Your Experience</label>
+                            <input type="text" class="form-control" name="experience" placeholder="Share your experience here">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="Detailed" class="form-label">Feedback</label>
+                            <textarea type="text" class="form-control" name="Detailed" placeholder="Give some suggestions on how we can improve ourselves"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer class="d-fixed text-center p-2 bg-dark text-light">
+        All rights reserved
+    </footer>
+    <script>
+        export default {
+            data() {
+                return {
+                    value: null
+                }
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
