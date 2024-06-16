@@ -1,53 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Log In</title>
 </head>
 <body>
     <header>
-        <h4>Login to your account</h4>
-    </header>
-    <main>
-        <form action="PageHome.html">
-            <label for="username">Username</label>
-            <input type="text" name="username" minlength="4" maxlength="20" required>
-            <br>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" minlength="6" maxlength="20" required>
-            <br>
+        <nav class="navbar navbar-expand-xl bg-dark p-2">
             <div>
-                <div>
-                    <label for="captcha">CAPTCHA</label>
-                    <input type="text" name="captcha" id="captcha" pattern="HREAM">
-                </div>
-                <div>
-                    <span><s><sub>HREAM</sub></s></span>
-                    <button>regenerate</button>
-                </div>
+                <!-- EE- Easy Electric -->
+                <h1 class="navbar-brand bg-light text-bold p-2 m-1">EE<sub> Electric services made Easy</sub></h1>
             </div>
-            <button type="submit">Login</button>
-            <button><a href="PageSignUp.html">Register</a></button>
-            <a href="Welcome.html">Back</a>
-        </form>
+            <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageHome.html">Home</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageManageConnections.html">Manage Connections</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PagePayBill.html">Pay Bill</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PagePaymentHistory.html">Payment History</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageAlerts.html">Alerts</a>
+                    </li>
+
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageUserAccount.html">Account</a>
+                    </li>
+
+                    <li class="nav-item dropdown bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Other
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="PageServices.html">Services</a>
+                          <a class="dropdown-item" href="PageMaintenance.html">Maintenance</a>
+                          <a class="dropdown-item" href="PageFeedBack.html">FeedBack / Complain</a>
+                          <a class="dropdown-item" href="PagShop.html">Shop</a>
+                          <a class="dropdown-item" href="PageCommercialPermit.html">Commercial Permit</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item bg-info rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="PageRegister.html">Register</a>
+                    </li>
+
+                    <li class="nav-item bg-danger rounded ps-1 pe-1 m-1 ms-2 me-2">
+                        <a class="nav-link" href="Welcome.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="mt-5 mb-5">
+        <div class="container p-0 border border-2 rounded">
+            <h4 class="bg-primary p-2 m-0">Login</h4>
+            <form class="form p-3" action="PageHome.html">
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input class="form-control" type="text" name="username" minlength="4" maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input class="form-control" type="password" name="password" id="password" minlength="6" maxlength="20" required>
+                </div>
+                <div class="form-group row m-2 ms-0 me-0 d-flex justify-content-between">            
+                    <input class="form-control col-sm" type="text" name="captcha" id="captcha" placeholder="CAPTCHA" pattern="HREAM">
+                    <div class="form-group d-flex p-0 m-0 col-sm">
+                        <span class="border border-2 p-1 rounded">
+                            <i>HREAM</i>
+                        </span>
+                        <button class="btn btn-warning">Generate</button>
+                    </div>
+                </div>
+        
+                <div class="form-group d-flex justify-content-between">
+                    <button class="btn btn-success" type="submit"><a class="nav-link" href="PageHome.html">Login</a></button>
+                    <button class="btn btn-primary" type="reset"><a class="nav-link" href="PageSignUp.html">Register</a></button>
+                </div>
+            </form>
+        </div>  
     </main>
-    <footer>
+    <footer class="d-fixed text-center p-2 bg-dark text-light">
         All rights reserved
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
-
-<!-- 
-    Need to add:
-    --styling
-    --functionality
-
-    Make changes:
-    #add design
-    #add renegerate funtionality for CAPTCHA
-    #add verification for CAPTCHA
-
-    Future Changes:
-    #add connection to backend for account verification
- -->
