@@ -75,7 +75,7 @@
         <div class="container mx-5 my-3">
             <h1 class="text-center mb-4">Shop</h1>
             <div class="row" id="product-list">
-                <!-- Product cards will be injected here by JavaScript -->
+                <!-- Product cards will be dynamically added here by JavaScript -->
             </div>
         </div>
     
@@ -87,7 +87,6 @@
             <ul id="cart-items" class="list-group mb-3">
                 <!-- Cart items will be injected here by JavaScript -->
             </ul>
-            
             <button class="btn btn-warning" onclick="checkout()">Checkout</button>
         </div>
     
@@ -152,7 +151,8 @@
             function removeFromCart(productId) {
                 const index = cart.findIndex(item => item.product.id === productId);
                 if (index !== -1) {
-                    cart.splice(index, 1);
+                    if(cart[index].quantity == 1) cart.splice(index, 1);
+                    else cart[index].quantity -= 1;
                 }
                 updateCart();
             }
