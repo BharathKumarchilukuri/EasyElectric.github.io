@@ -1,0 +1,69 @@
+{
+    "users": [
+        {
+            "id": "U1001",
+            "username": "alice_j",
+            "name": "Alice Johnson",
+            "mobile": "123-456-7890",
+            "email": "alice.johnson@example.com",
+            "password": "password123",
+            "connections": [{
+                "id": "EC1001",
+                "name": "Home Connection",
+                "address": "123 Maple Street, Springfield"
+            }]
+        },
+        {
+            "id": "U1002",
+            "username": "bob_sm",
+            "name": "Bob Smith",
+            "mobile": "987-654-3210",
+            "email": "bob.smith@example.com",
+            "password": "password456",
+            "connections": [{
+                "id": "EC1002",
+                "name": "Office Connection",
+                "address": "456 Oak Avenue, Metropolis"
+            }]
+        },
+        {
+            "id": "U1003",
+            "username": "carol_w",
+            "name": "Carol White",
+            "mobile": "555-123-4567",
+            "email": "carol.white@example.com",
+            "password": "password789",
+            "connections": [{
+                "id": "EC1003",
+                "name": "Factory Connection",
+                "address": "789 Birch Road, Townsville"
+            }]
+        },
+        {
+            "id": "U1004",
+            "username": "david_b",
+            "name": "David Brown",
+            "mobile": "333-444-5555",
+            "email": "david.brown@example.com",
+            "password": "password101",
+            "connections": [{
+                "id": "EC1004",
+                "name": "Warehouse Connection",
+                "address": "101 Pine Street, Villagetown"
+            }]
+        },
+        {
+            "id": "U1005",
+            "username": "eve_g",
+            "name": "Eve Green",
+            "mobile": "222-333-4444",
+            "email": "eve.green@example.com",
+            "password": "password202",
+            "connections": [{
+                "id": "EC1005",
+                "name": "Shop Connection",
+                "address": "202 Cedar Avenue, Cityville"
+            }]
+        }
+    ]
+}
