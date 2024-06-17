@@ -15,7 +15,21 @@
                     "address": "123 Maple Street, Springfield",
                     "unitsConsumed": 100,
                     "amount": 50.00,
-                    "tax": 5.00
+                    "tax": 5.00,
+                    "payments": [
+                        {
+                            "transactionId": "T1001",
+                            "totalAmount": 55.00,
+                            "date": "2023-06-01",
+                            "connectionId": "EC1001"
+                        },
+                        {
+                            "transactionId": "T1002",
+                            "totalAmount": 60.00,
+                            "date": "2023-05-01",
+                            "connectionId": "EC1001"
+                        }
+                    ]
                 },
                 {
                     "id": "EC1002",
@@ -24,7 +38,15 @@
                     "address": "456 Beach Avenue, Seaside",
                     "unitsConsumed": 80,
                     "amount": 40.00,
-                    "tax": 4.00
+                    "tax": 4.00,
+                    "payments": [
+                        {
+                            "transactionId": "T1003",
+                            "totalAmount": 44.00,
+                            "date": "2023-06-05",
+                            "connectionId": "EC1002"
+                        }
+                    ]
                 }
             ]
         },
@@ -43,7 +65,15 @@
                     "address": "456 Oak Avenue, Metropolis",
                     "unitsConsumed": 150,
                     "amount": 75.00,
-                    "tax": 7.50
+                    "tax": 7.50,
+                    "payments": [
+                        {
+                            "transactionId": "T1004",
+                            "totalAmount": 82.50,
+                            "date": "2023-06-10",
+                            "connectionId": "EC1003"
+                        }
+                    ]
                 }
             ]
         },
@@ -62,7 +92,15 @@
                     "address": "789 Birch Road, Townsville",
                     "unitsConsumed": 200,
                     "amount": 100.00,
-                    "tax": 10.00
+                    "tax": 10.00,
+                    "payments": [
+                        {
+                            "transactionId": "T1005",
+                            "totalAmount": 110.00,
+                            "date": "2023-06-15",
+                            "connectionId": "EC1004"
+                        }
+                    ]
                 },
                 {
                     "id": "EC1005",
@@ -71,7 +109,15 @@
                     "address": "101 Pine Street, Villagetown",
                     "unitsConsumed": 120,
                     "amount": 60.00,
-                    "tax": 6.00
+                    "tax": 6.00,
+                    "payments": [
+                        {
+                            "transactionId": "T1006",
+                            "totalAmount": 66.00,
+                            "date": "2023-06-20",
+                            "connectionId": "EC1005"
+                        }
+                    ]
                 }
             ]
         },
@@ -90,7 +136,15 @@
                     "address": "202 Cedar Avenue, Cityville",
                     "unitsConsumed": 80,
                     "amount": 40.00,
-                    "tax": 4.00
+                    "tax": 4.00,
+                    "payments": [
+                        {
+                            "transactionId": "T1007",
+                            "totalAmount": 44.00,
+                            "date": "2023-06-25",
+                            "connectionId": "EC1006"
+                        }
+                    ]
                 }
             ]
         },
@@ -109,7 +163,15 @@
                     "address": "303 Forest Road, Woodland",
                     "unitsConsumed": 90,
                     "amount": 45.00,
-                    "tax": 4.50
+                    "tax": 4.50,
+                    "payments": [
+                        {
+                            "transactionId": "T1008",
+                            "totalAmount": 49.50,
+                            "date": "2023-06-30",
+                            "connectionId": "EC1007"
+                        }
+                    ]
                 },
                 {
                     "id": "EC1008",
@@ -118,7 +180,15 @@
                     "address": "404 Grove Street, Greensville",
                     "unitsConsumed": 60,
                     "amount": 30.00,
-                    "tax": 3.00
+                    "tax": 3.00,
+                    "payments": [
+                        {
+                            "transactionId": "T1009",
+                            "totalAmount": 33.00,
+                            "date": "2023-07-01",
+                            "connectionId": "EC1008"
+                        }
+                    ]
                 }
             ]
         }

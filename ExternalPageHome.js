@@ -50,6 +50,7 @@ function Load(){
     // if(localStorage.getItem("sessionid") === null){
     //     window.location.href = "PageLogin.html";
     // }
+    localStorage.removeItem("UserId");
     loadData();
 }
 
