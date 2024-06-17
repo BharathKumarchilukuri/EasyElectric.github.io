@@ -1,5 +1,7 @@
+import { CheckUser } from "./ExternalPageHome";
+
 function CheckDetails(userDetails){
-    
+    return CheckUser(userDetails);
 }
 
 function loadSignUp(){
@@ -27,15 +29,13 @@ function loadSignUp(){
         };
 
         newUser.connectionDetails = connectionDetails;
-        CheckDetails(newUser);
-
-        let alreadyUser = await CheckUser(newUser.mobile, newUser.connectionDetails.id);
+        
+        let alreadyUser = await CheckDetails(newUser);;
         if(alreadyUser == -1){
             alert("Connection Already Registered");
         } else if(alreadyUser == 0){
-            alert("User Already Exists on this Mobile Number");
+            alert("User Already Exists on this Mobile Number or email");
         } else if(alreadyUser == 1){
-            await addNewUser(newUser);
             window.location.href = "PageLogin.html";
         }
     });

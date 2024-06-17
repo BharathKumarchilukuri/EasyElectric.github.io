@@ -15,6 +15,31 @@ export async function VerifyUser(username, password) {
     }
 }
 
+export async function CheckUser(userDetails){
+    await loadData();
+
+    let address = userDetails.address.doorNo + ' '
+    + userDetails.address.street + ','
+    + userDetails.address.city;
+
+    console.log(userDetails);
+    
+    userDetails.address = address;
+    for (const user of allUserData) {
+        if(user.mobile != userDetails.mobileNum && user.email != userDetails.email){
+            for (const iterator of user.connections) {
+                if(iterator.id == userDetails.connectionDetails.id){
+                    return -1;
+                }
+            }
+            allUserData = JSON.parse(allUserData).push(userDetails);
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+
 var allUserData;
 var allAdminData;
 
