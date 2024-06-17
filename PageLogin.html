@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Log In</title>
 </head>
-<body >
+<body onload="loadLogin()">
     <header>
         <nav class="text-white navbar navbar-expand-xl bg-dark p-2">
             <div>
@@ -22,27 +22,27 @@
             <div class=" collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="PageHome.html">Home</a>
+                        <a class="nav-link text-white" id="HomeLink" href="PageHome.html">Home</a>
                     </li>
 
                     <li class="nav-item rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="PageManageConnections.html">Manage Connections</a>
+                        <a class="nav-link text-white" id="MngConneLink" href="PageManageConnections.html">Manage Connections</a>
                     </li>
 
                     <li class="nav-item rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="PagePayBill.html">Pay Bill</a>
+                        <a class="nav-link text-white" id="PayBillLink" href="PagePayBill.html">Pay Bill</a>
                     </li>
 
                     <li class="nav-item rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="PagePaymentHistory.html">Payment History</a>
+                        <a class="nav-link text-white" id="PayHistoryLink" href="PagePaymentHistory.html">Payment History</a>
                     </li>
 
                     <li class="nav-item rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="PageAlerts.html">Alerts</a>
+                        <a class="nav-link text-white" id="AlertLink"  href="PageAlerts.html">Alerts</a>
                     </li>
 
                     <li class="nav-item rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="PageUserAccount.html">Account</a>
+                        <a class="nav-link text-white" id="AccountLink" href="PageUserAccount.html">Account</a>
                     </li>
 
                     <li class="nav-item dropdown rounded ps-1 pe-1 m-1 ms-2 me-2">
@@ -50,11 +50,11 @@
                           Other
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="PageServices.html">Services</a>
-                          <a class="dropdown-item" href="PageMaintenance.html">Maintenance</a>
-                          <a class="dropdown-item" href="PageFeedBack.html">FeedBack / Complain</a>
-                          <a class="dropdown-item" href="PageShop.html">Shop</a>
-                          <a class="dropdown-item" href="PageCommercialPermit.html">Commercial Permit</a>
+                          <a class="dropdown-item" id="ServicesLink" href="PageServices.html">Services</a>
+                          <a class="dropdown-item" id="MaintenanceLink" href="PageMaintenance.html">Maintenance</a>
+                          <a class="dropdown-item" id="feedbacklink" href="PageFeedBack.html">FeedBack / Complain</a>
+                          <a class="dropdown-item" id="ShopLink" href="PageShop.html">Shop</a>
+                          <a class="dropdown-item" id="CommercialLink" href="PageCommercialPermit.html">Commercial Permit</a>
                         </div>
                     </li>
                 </ul>
@@ -74,27 +74,27 @@
     <main class="my-5">
         <div class="container col-12 col-md-6 p-0 border border-2 rounded">
             <h4 class="bg-light p-2 py-3 m-0">Login</h4>
-            <form class="form p-3" action="PageHome.html">
+            <form class="form p-3" id="LoginForm">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
-                    <input class="form-control" type="text" name="username" minlength="4" maxlength="20" required>
+                    <input class="form-control" type="text" name="username" id="username" minlength="4" maxlength="20" required>
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Password</label>
                     <input class="form-control" type="password" name="password" id="password" minlength="6" maxlength="20" required>
                 </div>
                 <div class="form-group row m-3 mx-0 d-flex justify-content-between">            
-                    <input class="form-control col" type="text" name="captcha" id="captcha" placeholder="CAPTCHA" pattern="HREAM">
+                    <input class="form-control col" type="text" name="captchaInput" id="captchaInput" placeholder="CAPTCHA">
                     <div class="form-group d-flex p-0 mx-1 col">
-                        <button class="btn btn-warning mx-1">Generate</button>
+                        <button class="btn btn-warning mx-1" type="button" id="RegenerateCap">Generate</button>
                         <span class="border border-2 px-2 mx-1 rounded">
-                            <i class="my-auto">HREAM</i>
+                            <i class="my-auto" id="captcha"></i>
                         </span>
                     </div>
                 </div>
         
                 <div class="form-group d-flex justify-content-between">
-                    <button class="btn btn-success" type="submit"><a class="nav-link" href="PageHome.html">Login</a></button>
+                    <button class="btn btn-success" type="submit">Login</button>
                     <button class="btn btn-outline-primary" type="reset"><a class="nav-link" href="PageSignUp.html">Register</a></button>
                 </div>
             </form>
@@ -103,6 +103,71 @@
     <footer class="position-sticky bottom-0 w-100 text-center p-2 bg-dark text-white">
         2024 Your Company. All rights reserved&reg;
     </footer>
+
+    <script>
+        let captcha = "HREAM";
+
+        function RegenerateCaptcha() {
+            console.log("yes");
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let result = '';
+            const charactersLength = characters.length;
+
+            for (let i = 0; i < 6; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+        
+            captcha = result;
+            document.getElementById("captcha").innerText = captcha;
+        }
+
+        function createSessionId() {
+            return Math.floor(Math.random() * 1000);
+        }
+
+        function loadLogin(){
+            document.getElementById("LoginForm").addEventListener( "submit", async function(event) {
+                event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const captchaInput = document.getElementById('captchaInput').value;
+                const captcha = document.getElementById('captcha').value;
+                console.log(username, password, captchaInput);
+                if(captcha === captchaInput){
+                    let user = await VerifyUser(username, password)
+                    if(user == -1){
+                        alert("Not a user");
+                    } else if(user == 0){
+                        alert("Wrong password, please check once again");
+                    } else if(user == 1){
+                        localStorage.setItem("sessionId", await createSessionId());
+                        window.location.href = "PageHome.html";
+                    }
+                }
+            });
+
+            document.getElementById("RegenerateCap").addEventListener("click", () => { RegenerateCaptcha(); });
+            RegenerateCaptcha();
+            SessionSuccess();
+        }
+
+        function SessionSuccess() {
+            if(localStorage.getItem("sessionId") === null){
+                document.getElementById("HomeLink").classList.add("disabled");
+                document.getElementById("MngConneLink").classList.add("disabled");
+                document.getElementById("PayBillLink").classList.add("disabled");
+                document.getElementById("PayHistoryLink").classList.add("disabled");
+                document.getElementById("AlertLink").classList.add("disabled");
+                document.getElementById("AccountLink").classList.add("disabled");
+                document.getElementById("ServicesLink").classList.add("disabled");
+                document.getElementById("MaintenanceLink").classList.add("disabled");
+                document.getElementById("feedbacklink").classList.add("disabled");
+                document.getElementById("ShopLink").classList.add("disabled");
+                document.getElementById("CommercialLink").classList.add("disabled");
+            }
+        }
+
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
