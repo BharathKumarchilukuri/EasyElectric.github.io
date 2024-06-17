@@ -58,3 +58,5 @@ function SessionSuccess() {
         document.getElementById("CommercialLink").classList.add("disabled");
     }
 }
+
+loadSignUp();
