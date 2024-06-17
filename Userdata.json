@@ -48,6 +48,47 @@
                         }
                     ]
                 }
+            ],
+            "commercialAppData": [
+                {
+                    "applicantName": "ABC Manufacturing Co.",
+                    "applicantType": "Business",
+                    "contactPerson": "John Doe",
+                    "email": "john.doe@abcmanufacturing.com",
+                    "phone": "123-456-7890",
+                    "propertyAddress": "123 Industrial Park, Cityville",
+                    "propertyUse": "Manufacturing Plant",
+                    "electricLoad":150,
+                    "voltageRequirements": "Three-phase, 480V",
+                    "otherRequirements": "Backup generator integration",
+                    "businessRegistration": "BR123456"
+                },
+                {
+                    "applicantName": "XYZ Retail Inc.",
+                    "applicantType": "Business",
+                    "contactPerson": "Jane Smith",
+                    "email": "jane.smith@xyzretail.com",
+                    "phone": "987-654-3210",
+                    "propertyAddress": "456 Shopping Center Blvd, Townsville",
+                    "propertyUse": "Retail Store",
+                    "electricLoad": 75,
+                    "voltageRequirements": "Single-phase, 240V",
+                    "otherRequirements": "Energy-efficient lighting",
+                    "businessRegistration": "BR654321"
+                },
+                {
+                    "applicantName": "LMN Hospitality",
+                    "applicantType": "Business",
+                    "contactPerson": "Emily Johnson",
+                    "email": "emily.johnson@lmnhospitality.com",
+                    "phone": "555-123-4567",
+                    "propertyAddress": "789 Hotel Ave, Metropolis",
+                    "propertyUse": "Hotel",
+                    "electricLoad": 200,
+                    "voltageRequirements": "Three-phase, 480V",
+                    "otherRequirements": "Solar power integration",
+                    "businessRegistration": "BR789123"
+                }
             ]
         },
         {

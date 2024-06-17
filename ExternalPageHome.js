@@ -73,10 +73,10 @@ async function loadData(){
 }
 
 function Load(){
-    // if(localStorage.getItem("sessionid") === null){
-    //     window.location.href = "PageLogin.html";
-    // }
-    localStorage.removeItem("UserId");
+    if(localStorage.getItem("sessionId") === null){
+        window.location.href = "PageLogin.html";
+    }
+    // localStorage.removeItem("UserId");
     loadData();
 }
 
