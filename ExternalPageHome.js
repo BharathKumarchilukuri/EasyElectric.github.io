@@ -42,14 +42,15 @@ async function loadData(){
     allUserData = allData.users;
     allAdminData = allData.admins;
 
-    window.allUserData = allUserData;
-    window.allAdminData = allAdminData;
+    localStorage.setItem("allUserData", JSON.stringify(allUserData));
+    localStorage.setItem("allAdminData", JSON.stringify(allAdminData));
 }
 
 function Load(){
-    if(localStorage.getItem("sessionid") === null){
-        window.location.href = "PageLogin.html";
-    }
+    // if(localStorage.getItem("sessionid") === null){
+    //     window.location.href = "PageLogin.html";
+    // }
+    loadData();
 }
 
-// window.Load = Load;
+window.Load = Load;

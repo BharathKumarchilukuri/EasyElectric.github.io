@@ -7,11 +7,26 @@
             "mobile": "123-456-7890",
             "email": "alice.johnson@example.com",
             "password": "password123",
-            "connections": [{
-                "id": "EC1001",
-                "name": "Home Connection",
-                "address": "123 Maple Street, Springfield"
-            }]
+            "connections": [
+                {
+                    "id": "EC1001",
+                    "name": "Home Connection",
+                    "type": "Household",
+                    "address": "123 Maple Street, Springfield",
+                    "unitsConsumed": 100,
+                    "amount": 50.00,
+                    "tax": 5.00
+                },
+                {
+                    "id": "EC1002",
+                    "name": "Home Connection Vacation",
+                    "type": "Household",
+                    "address": "456 Beach Avenue, Seaside",
+                    "unitsConsumed": 80,
+                    "amount": 40.00,
+                    "tax": 4.00
+                }
+            ]
         },
         {
             "id": "U1002",
@@ -20,11 +35,17 @@
             "mobile": "987-654-3210",
             "email": "bob.smith@example.com",
             "password": "password456",
-            "connections": [{
-                "id": "EC1002",
-                "name": "Office Connection",
-                "address": "456 Oak Avenue, Metropolis"
-            }]
+            "connections": [
+                {
+                    "id": "EC1003",
+                    "name": "Home Connection",
+                    "type": "Household",
+                    "address": "456 Oak Avenue, Metropolis",
+                    "unitsConsumed": 150,
+                    "amount": 75.00,
+                    "tax": 7.50
+                }
+            ]
         },
         {
             "id": "U1003",
@@ -33,11 +54,26 @@
             "mobile": "555-123-4567",
             "email": "carol.white@example.com",
             "password": "password789",
-            "connections": [{
-                "id": "EC1003",
-                "name": "Factory Connection",
-                "address": "789 Birch Road, Townsville"
-            }]
+            "connections": [
+                {
+                    "id": "EC1004",
+                    "name": "Factory Connection",
+                    "type": "Commercial",
+                    "address": "789 Birch Road, Townsville",
+                    "unitsConsumed": 200,
+                    "amount": 100.00,
+                    "tax": 10.00
+                },
+                {
+                    "id": "EC1005",
+                    "name": "Warehouse Connection",
+                    "type": "Commercial",
+                    "address": "101 Pine Street, Villagetown",
+                    "unitsConsumed": 120,
+                    "amount": 60.00,
+                    "tax": 6.00
+                }
+            ]
         },
         {
             "id": "U1004",
@@ -46,11 +82,17 @@
             "mobile": "333-444-5555",
             "email": "david.brown@example.com",
             "password": "password101",
-            "connections": [{
-                "id": "EC1004",
-                "name": "Warehouse Connection",
-                "address": "101 Pine Street, Villagetown"
-            }]
+            "connections": [
+                {
+                    "id": "EC1006",
+                    "name": "Shop Connection",
+                    "type": "Commercial",
+                    "address": "202 Cedar Avenue, Cityville",
+                    "unitsConsumed": 80,
+                    "amount": 40.00,
+                    "tax": 4.00
+                }
+            ]
         },
         {
             "id": "U1005",
@@ -59,11 +101,26 @@
             "mobile": "222-333-4444",
             "email": "eve.green@example.com",
             "password": "password202",
-            "connections": [{
-                "id": "EC1005",
-                "name": "Shop Connection",
-                "address": "202 Cedar Avenue, Cityville"
-            }]
+            "connections": [
+                {
+                    "id": "EC1007",
+                    "name": "Cabin Connection",
+                    "type": "Commercial",
+                    "address": "303 Forest Road, Woodland",
+                    "unitsConsumed": 90,
+                    "amount": 45.00,
+                    "tax": 4.50
+                },
+                {
+                    "id": "EC1008",
+                    "name": "Garden Shed Connection",
+                    "type": "Commercial",
+                    "address": "404 Grove Street, Greensville",
+                    "unitsConsumed": 60,
+                    "amount": 30.00,
+                    "tax": 3.00
+                }
+            ]
         }
     ]
 }
