@@ -33,6 +33,7 @@ export async function CheckUser(userDetails){
                 }
             }
             allUserData = JSON.parse(allUserData).push(userDetails);
+            localStorage.setItem("allUserData", JSON.stringify(allUserData));
             return 1;
         } else {
             return 0;

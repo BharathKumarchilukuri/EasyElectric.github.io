@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Log In</title>
 </head>
-<body >
+<body onload="Load()">
     <header>
         <nav class="text-white navbar navbar-expand-xl bg-dark p-2">
             <div>
@@ -74,50 +74,55 @@
     <main class="container-fluid w-100 p-2 p-md-5">
 	    <ul class="list-group">
             <li class="list-group-item m-0 p-0">
-                <div class="bg-info w-100 p-2 m-0">
-                    <a href="#complaint" class="text-decoration-none p-1 text-dark d-flex" data-bs-toggle="collapse" aria-expanded="false" aria-controls="complaint">Register a Complaint</a>
+                <div class="bg-danger opacity-50 w-100 p-2 m-0">
+                    <a href="#complaint" class="text-decoration-none p-1 text-white d-flex" data-bs-toggle="collapse" aria-expanded="false" aria-controls="complaint">Register a Complaint</a>
                 </div>
                 <div class="collapse show bg-none m-2" id="complaint">
                     <div class="w-100 text-danger rounded my-2">
                         <small class="text-bold">*Getting back to you might take some time.</small>
                     </div>
-                    <form action="#" class="form">
+                    <form class="form">
                         <div class="form-group">
                             <label for="Connections" class="form-label">Pick a Connection</label>
-                            <select class="form-select" name="Connections">
-                                <option value="Connection01">Connection 01</option>
-                                <option value="Connection02">Connection 02</option>
-                                <option value="Website">Website</option>
-                                <option value="Others">Others</option>
+                            <select class="form-select" required id="Connections" name="Connections">
+                                
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="Reason" class="form-label">Reason</label>
-                            <input type="text" class="form-control" name="Reason" placeholder="Mention your reason here">
+                            <input type="text" id="Reason" class="form-control" required minlength="6" maxlength="50" name="Reason" placeholder="Mention your reason here">
                         </div>
                         
                         <div class="form-group">
-                            <label for="Detailed" class="form-label">Reason</label>
-                            <textarea type="text" class="form-control" name="Detailed" placeholder="Give a brief description about the issue"></textarea>
+                            <label for="DetailedComplaint" class="form-label">Reason</label>
+                            <textarea type="text" id="DetailedComplaint" class="form-control" required minlength="6" name="Detailed" placeholder="Give a brief description about the issue"></textarea>
+                        </div>
+
+                        <div class="py-2">
+                            <button class="btn btn-success" id="ComplaintBtn" type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
             </li>
             <li class="list-group-item m-0 p-0">
-                <div class="bg-light w-100 p-2 m-0">
+                <div class="bg-info w-100 p-2 m-0">
                     <a href="#feedback" class="text-decoration-none p-1 text-dark w-100 d-flex" data-bs-toggle="collapse" aria-expanded="false" aria-controls="feedback">Give a FeedBack</a>
                 </div>
                 <div class="collapse bg-none m-2" id="feedback">
-                    <form action="#" class="form">
+                    <form class="form">
                         <div class="form-group">
                             <label for="experience" class="form-label">Your Experience</label>
-                            <input type="text" class="form-control" name="experience" placeholder="Share your experience here">
+                            <input type="number" id="experience" class="form-control" name="experience" min="0" max="5" placeholder="Share your experience here">
                         </div>
                         
                         <div class="form-group">
-                            <label for="Detailed" class="form-label">Feedback</label>
-                            <textarea type="text" class="form-control" name="Detailed" placeholder="Give some suggestions on how we can improve ourselves"></textarea>
+                            <label for="DetailedFeedback" class="form-label">Feedback</label>
+                            <textarea type="text" id="DetailedFeedback" class="form-control" name="Detailed" placeholder="Give some suggestions on how we can improve ourselves"></textarea>
+                        </div>
+
+                        <div class="py-2">
+                            <button class="btn btn-success" id="FeedBackBtn" type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -127,6 +132,9 @@
     <footer class="position-sticky bottom-0 w-100 text-center p-2 bg-dark text-white">
         2024 Your Company. All rights reserved&reg;
     </footer>
+
+    <script type="module" src="ExternalPageHome.js"></script>
+    <script type="module" src="ExternalPageFeedback.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
