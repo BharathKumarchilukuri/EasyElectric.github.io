@@ -1,4 +1,4 @@
-import { CheckUser } from "./ExternalPageHome";
+import { CheckUser } from "./ExternalPageHome.js";
 
 function CheckDetails(userDetails){
     return CheckUser(userDetails);
@@ -58,3 +58,5 @@ function SessionSuccess() {
         document.getElementById("CommercialLink").classList.add("disabled");
     }
 }
+
+window.loadSignUp = loadSignUp;
