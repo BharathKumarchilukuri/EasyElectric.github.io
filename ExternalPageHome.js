@@ -15,6 +15,23 @@ export async function VerifyUser(username, password) {
     }
 }
 
+export async function VerifyAdmin(username, password) {
+    await loadData();
+    console.log(username, password);
+    for (const admin of allAdminData) {
+        if(admin.username == username){
+            if(admin.password == password){
+                localStorage.setItem("AdminId", admin.id);
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return -1;
+        }
+    }
+}
+
 export async function CheckUser(userDetails){
     await loadData();
 
@@ -72,6 +89,13 @@ async function loadData(){
     localStorage.setItem("allAdminData", JSON.stringify(allAdminData));
 }
 
+function loadAdminData(){
+    // if(localStorage.getItem("sessionAdminId") === null){
+    //     window.location.href = "PageAdminLogin.html";
+    // }
+    loadData();
+}
+
 function Load(){
     if(localStorage.getItem("sessionId") === null){
         window.location.href = "PageLogin.html";
@@ -81,3 +105,4 @@ function Load(){
 }
 
 window.Load = Load;
+window.loadAdminData = loadAdminData;
