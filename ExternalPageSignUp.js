@@ -12,7 +12,7 @@ function loadSignUp(){
         // Get user form data
         newUser.name = document.querySelector('input[name="Name"]').value;
         newUser.mobile = document.querySelector('input[name="Mobile"]').value;
-        newUser.otp = document.querySelector('input[name="OTP"]').value;
+        let OTP = document.querySelector('input[name="OTP"]').value;
         newUser.password = document.querySelector('input[name="Password"]').value;
         newUser.confPassword = document.querySelector('input[name="ConfPassword"]').value;
 

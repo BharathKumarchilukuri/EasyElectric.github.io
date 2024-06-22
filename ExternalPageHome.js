@@ -5,11 +5,14 @@ export async function VerifyUser(username, password) {
         if(user.username == username){
             if(user.password == password){
                 localStorage.setItem("UserId", user.id);
+                localStorage.setItem("UserData", user);
                 return 1;
             } else {
+                removeAllData();
                 return 0;
             }
         } else {
+            removeAllData();
             return -1;
         }
     }
@@ -24,9 +27,11 @@ export async function VerifyAdmin(username, password) {
                 localStorage.setItem("AdminId", admin.id);
                 return 1;
             } else {
+                removeAllData();
                 return 0;
             }
         } else {
+            removeAllData();
             return -1;
         }
     }
@@ -89,6 +94,10 @@ async function loadData(){
     localStorage.setItem("allAdminData", JSON.stringify(allAdminData));
 }
 
+function removeAllData(){
+    localStorage.clear();
+}
+
 function loadAdminData(){
     // if(localStorage.getItem("sessionAdminId") === null){
     //     window.location.href = "PageAdminLogin.html";
@@ -96,13 +105,11 @@ function loadAdminData(){
     loadData();
 }
 
-function Load(){
-    if(localStorage.getItem("sessionId") === null){
-        window.location.href = "PageLogin.html";
-    }
-    // localStorage.removeItem("UserId");
-    loadData();
-}
+document.getElementById("logOutLink").addEventListener("click", (event) => {
+    event.preventDefault();
+    removeAllData();
+    window.location.href = "PageLogin.html";
+})
 
-window.Load = Load;
 window.loadAdminData = loadAdminData;
+window.loadData = loadData;
