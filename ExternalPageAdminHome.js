@@ -62,24 +62,24 @@ function getApplications(){
 }
 
 function getPayments(){
-    let allpay = [];
+    let allPay = [];
     AllUsers.forEach(user => {
         user.connections.forEach(function(connection) {
             connection.payments.forEach(function(payment) {
-                allpay.push(...payment);
+                allPay.push(...payment);
             });
         });
     });
 
-    allpay.sort(function(a, b) {
+    allPay.sort(function(a, b) {
         return new Date(b.date) - new Date(a.date);
     });
 
-    allpay.sort(function(a, b) {
+    allPay.sort(function(a, b) {
         return new Date(b.date) - new Date(a.date);
     });
 
-    return allpay;
+    return allPay;
 }
 
 document.getElementById('adminContent').addEventListener("submit", () => {

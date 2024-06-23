@@ -15,7 +15,7 @@ function RegenerateCaptcha() {
     document.getElementById("captcha").innerText = captcha;
 }
 
-function createsessionAdminId() {
+function createSessionAdminId() {
     return Math.floor(Math.random() * 1000);
 }
 
@@ -26,7 +26,6 @@ export function loadAdminLogin() {
         const password = document.getElementById('password').value;
         const captchaInput = document.getElementById('captchaInput').value;
         const captcha = document.getElementById('captcha').innerText;
-        console.log(username, password, captchaInput);
         if (captcha === captchaInput) {
             let user = await VerifyAdmin(username, password);
             if (user == -1) {
@@ -34,8 +33,8 @@ export function loadAdminLogin() {
             } else if (user == 0) {
                 alert("Wrong password, please check once again");
             } else if (user == 1) {
-                localStorage.setItem("sessionAdminId", createsessionAdminId());
-                window.location.href = "PageHome.html";
+                localStorage.setItem("sessionAdminId", createSessionAdminId());
+                window.location.href = "PageAdminHome.html";
             }
         }
     });
@@ -45,3 +44,5 @@ export function loadAdminLogin() {
 }
 
 window.loadAdminLogin = loadAdminLogin;
+
+loadAdminLogin();

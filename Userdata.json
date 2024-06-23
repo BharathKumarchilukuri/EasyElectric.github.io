@@ -235,6 +235,30 @@
         }
     ],
     "admins":[
-        
+        {
+            "id": 1,
+            "username": "admin1",
+            "password": "password123",
+            "role": "superadmin",
+            "email": "admin1@example.com",
+            "created_at": "2023-01-15T08:30:00Z"
+        },
+        {
+            "id": 2,
+            "username": "admin2",
+            "password": "securepass456",
+            "role": "admin",
+            "email": "admin2@example.com",
+            "created_at": "2023-02-10T11:45:00Z"
+        },
+        {
+            "id": 3,
+            "username": "admin3",
+            "password": "mypassword789",
+            "role": "admin",
+            "email": "admin3@example.com",
+            "created_at": "2023-03-05T09:15:00Z"
+        }
     ]
+    
 }
