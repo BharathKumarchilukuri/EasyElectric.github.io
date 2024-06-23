@@ -65,7 +65,7 @@
                     </li>
 
                     <li class="nav-item bg-danger rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="index.html">Logout</a>
+                        <a class="nav-link text-white" id="logOutLink" href="index.html">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -73,7 +73,12 @@
     </header>
     <main class="my-5">
         <div class="container col-12 col-md-6 p-0 border border-2 rounded">
-            <h4 class="bg-light p-2 py-3 m-0">Login</h4>
+            <div class="d-flex bg-light justify-content-between">
+                <h4 class="p-2 py-3 m-0">Login</h4>
+                <div class="align-items-center m-2">
+                    <a class="btn btn-primary" href="PageAdminLogin.html" title="Admin Login">Admin</a>
+                </div>
+            </div>
             <form class="form p-3" id="LoginForm">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>

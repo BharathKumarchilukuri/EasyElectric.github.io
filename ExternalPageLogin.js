@@ -26,7 +26,6 @@ export function loadLogin() {
         const password = document.getElementById('password').value;
         const captchaInput = document.getElementById('captchaInput').value;
         const captcha = document.getElementById('captcha').innerText;
-        console.log(username, password, captchaInput);
         if (captcha === captchaInput) {
             let user = await VerifyUser(username, password);
             if (user == -1) {
