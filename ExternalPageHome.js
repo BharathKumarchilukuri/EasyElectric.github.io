@@ -1,21 +1,19 @@
 export async function VerifyUser(username, password) {
     await loadData();
-    console.log(username, password);
+    console.log(allUserData);
     for (const user of allUserData) {
-        if(user.username == username){
-            if(user.password == password){
+        console.log(user.username);
+        if(user.username === username){
+            if(user.password === password){
                 localStorage.setItem("UserId", user.id);
-                localStorage.setItem("UserData", user);
+                localStorage.setItem("UserData", JSON.stringify(user));
                 return 1;
             } else {
-                removeAllData();
                 return 0;
             }
-        } else {
-            removeAllData();
-            return -1;
         }
     }
+    return -1;
 }
 
 export async function VerifyAdmin(username, password) {
@@ -40,21 +38,17 @@ export async function VerifyAdmin(username, password) {
 export async function CheckUser(userDetails){
     await loadData();
 
-    let address = userDetails.address.doorNo + ' '
-    + userDetails.address.street + ','
-    + userDetails.address.city;
-
-    console.log(userDetails);
-    
-    userDetails.address = address;
     for (const user of allUserData) {
         if(user.mobile != userDetails.mobileNum && user.email != userDetails.email){
             for (const iterator of user.connections) {
-                if(iterator.id == userDetails.connectionDetails.id){
-                    return -1;
+                for (const it01 of userDetails.connectionDetails) {
+                    if(iterator.id == it01.id){
+                        return -1;
+                    }
                 }
             }
-            allUserData = JSON.parse(allUserData).push(userDetails);
+            allUserData.push(userDetails);
+            console.log(allUserData);
             localStorage.setItem("allUserData", JSON.stringify(allUserData));
             return 1;
         } else {
@@ -85,13 +79,18 @@ async function loadData(){
         xhr.send();
 
     });
-    
-    let allData = await callData;
-    allUserData = allData.users;
-    allAdminData = allData.admins;
 
-    localStorage.setItem("allUserData", JSON.stringify(allUserData));
-    localStorage.setItem("allAdminData", JSON.stringify(allAdminData));
+    allUserData = JSON.parse(localStorage.getItem("allUserData"));
+    console.log(allUserData);
+
+    if (!(allUserData)) {
+        let allData = await callData;
+        allUserData = allData.users;
+        allAdminData = allData.admins;
+    
+        localStorage.setItem("allUserData", JSON.stringify(allUserData));
+        localStorage.setItem("allAdminData", JSON.stringify(allAdminData));
+    }
 }
 
 function removeAllData(){
