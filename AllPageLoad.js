@@ -1,3 +1,5 @@
+import { removeAllData } from "./ExternalPageHome.js";
+
 function Load(){
     if(localStorage.getItem("sessionId") === null){
         window.location.href = "PageLogin.html";

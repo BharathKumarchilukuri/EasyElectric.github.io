@@ -102,14 +102,14 @@ async function loadData(person){
     }
 }
 
-function removeAllData(){
+export function removeAllData(){
     localStorage.clear();
 }
 
-function loadAdminData(){
-    // if(localStorage.getItem("sessionAdminId") === null){
-    //     window.location.href = "PageAdminLogin.html";
-    // }
+export function loadAdminData(){
+    if(localStorage.getItem("sessionAdminId") === null){
+        window.location.href = "PageAdminLogin.html";
+    }
     loadData('admin');
 }
 
@@ -119,5 +119,5 @@ function loadAdminData(){
 //     window.location.href = "PageLogin.html";
 // }) // moved to AllPageLoad.js
 
-window.loadAdminData = loadAdminData;
 window.loadData = loadData;
+window.removeAllData = removeAllData;

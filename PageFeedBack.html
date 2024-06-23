@@ -82,7 +82,7 @@
                     <div class="w-100 text-danger rounded my-2">
                         <small class="text-bold">*Getting back to you might take some time.</small>
                     </div>
-                    <form class="form">
+                    <form class="form" id="ComplaintForm">
                         <div class="form-group">
                             <label for="Connections" class="form-label">Pick a Connection</label>
                             <select class="form-select" required id="Connections" name="Connections">
@@ -91,12 +91,17 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="CDate" class="form-label">Date</label>
+                            <input type="date" id="CDate" class="form-control" name="CDate" required>
+                        </div>
+
+                        <div class="form-group">
                             <label for="Reason" class="form-label">Reason</label>
                             <input type="text" id="Reason" class="form-control" required minlength="6" maxlength="50" name="Reason" placeholder="Mention your reason here">
                         </div>
                         
                         <div class="form-group">
-                            <label for="DetailedComplaint" class="form-label">Reason</label>
+                            <label for="DetailedComplaint" class="form-label">Details</label>
                             <textarea type="text" id="DetailedComplaint" class="form-control" required minlength="6" name="Detailed" placeholder="Give a brief description about the issue"></textarea>
                         </div>
 
@@ -111,7 +116,7 @@
                     <a href="#feedback" class="text-decoration-none p-1 text-dark w-100 d-flex" data-bs-toggle="collapse" aria-expanded="false" aria-controls="feedback">Give a FeedBack</a>
                 </div>
                 <div class="collapse bg-none m-2" id="feedback">
-                    <form class="form">
+                    <form class="form" id="FeedBackForm">
                         <div class="form-group">
                             <label for="experience" class="form-label">Your Experience</label>
                             <input type="number" id="experience" class="form-control" name="experience" min="0" max="5" placeholder="Share your experience here">

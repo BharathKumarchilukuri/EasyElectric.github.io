@@ -89,6 +89,20 @@
                     "otherRequirements": "Solar power integration",
                     "businessRegistration": "BR789123"
                 }
+            ],
+            "complaints": [
+                {
+                    "connectionId": "EC1001",
+                    "reason": "Frequent power outages",
+                    "detailedComplaint": "The power goes out multiple times a week without any prior notice.",
+                    "date": "2023-06-15"
+                },
+                {
+                    "connectionId": "EC1002",
+                    "reason": "High electricity bill",
+                    "detailedComplaint": "The electricity bill for the last month was unusually high compared to previous months.",
+                    "date": "2023-06-18"
+                }
             ]
         },
         {
@@ -115,6 +129,14 @@
                             "connectionId": "EC1003"
                         }
                     ]
+                }
+            ],
+            "complaints":[
+                {
+                    "connectionId": "EC1003",
+                    "reason": "Voltage fluctuation",
+                    "detailedComplaint": "There are frequent voltage fluctuations causing damage to office equipment.",
+                    "date": "2023-06-20"
                 }
             ]
         },
@@ -159,6 +181,20 @@
                             "connectionId": "EC1005"
                         }
                     ]
+                }
+            ],
+            "complaints":[
+                {
+                    "connectionId": "EC1004",
+                    "reason": "Meter reading issue",
+                    "detailedComplaint": "The meter reading seems incorrect as the consumption reported is much higher than actual usage.",
+                    "date": "2023-06-22"
+                },
+                {
+                    "connectionId": "EC1005",
+                    "reason": "Connection delay",
+                    "detailedComplaint": "There has been a significant delay in getting a new connection approved.",
+                    "date": "2023-06-25"
                 }
             ]
         },
