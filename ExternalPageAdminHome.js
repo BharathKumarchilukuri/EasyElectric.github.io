@@ -1,73 +1,52 @@
-import { loadAdminData } from "./ExternalPageHome";
-
-const adminHandler = {
-    data: {
-        complaints: AllComplaints,
-        newApplications: AllApplications,
-        payments: AllPayments,
-    },
-
-    viewComplaints: function() {
-        const complaints = this.data.complaints;
-        let content = '<h3>Complaints</h3><ul class="list-group">';
-        complaints.forEach(complaint => {
-            content += `<li class="list-group-item">User: ${complaint.user}, Complaint: ${complaint.complaint}</li>`;
-        });
-        content += '</ul>';
-        document.getElementById('adminContent').innerHTML = "";
-        document.getElementById('adminContent').innerHTML = content;
-    },
-
-    viewNewApplications: function() {
-        const applications = this.data.newApplications;
-        let content = '<h3>New Applications</h3><ul class="list-group">';
-        applications.forEach(application => {
-            content += `<li class="list-group-item">User: ${application.user}, Application: ${application.application}</li>`;
-        });
-        content += '</ul>';
-        document.getElementById('adminContent').innerHTML = "";
-        document.getElementById('adminContent').innerHTML = content;
-    },
-
-    viewNewPayments: function() {
-        const payments = this.data.payments;
-        let content = '<h3>New Payments</h3><ul class="list-group">';
-        payments.forEach(payment => {
-            content += `<li class="list-group-item">User: ${payment.user}, Amount: ${payment.amount}, Date: ${payment.date}</li>`;
-        });
-        content += '</ul>';
-        document.getElementById('adminContent').innerHTML = "";
-        document.getElementById('adminContent').innerHTML = content;
-    }
-};
+import { loadAdminData } from "./ExternalPageHome.js";
 
 function getComplaints(){
     let allComp = [];
-    AllUsers.forEach(element => {
-        if(element.complaints){
-            allComp.add(...element.complaints);
+    AllUsers.forEach(user => {
+        if(user.complaints){
+            user.complaints.forEach((complaint) => {
+                let newUser = {
+                    userid: user.id,
+                    complaint: complaint,
+                }
+                allComp.push(newUser);
+            });
         }
     });
+
     return allComp;
 }
 
 function getApplications(){
     let allApp = [];
-    AllUsers.forEach(element => {
-        if(element.applications){
-            allComp.add(...element.applications);
+    AllUsers.forEach(user => {
+        if(user.commercialAppData){
+            user.commercialAppData.forEach((application) => {
+                let newUser = {
+                    userid: user.id,
+                    application: application,
+                }
+                allApp.push(newUser);
+            });
         }
     });
+
     return allApp;
 }
 
 function getPayments(){
     let allPay = [];
     AllUsers.forEach(user => {
-        user.connections.forEach(function(connection) {
-            connection.payments.forEach(function(payment) {
-                allPay.push(...payment);
-            });
+        let pay = [];
+        user.connections.forEach((connection) => {
+            connection.payments.forEach((payment) => {
+                let newUser = {
+                    userid: user.id,
+                    amount : payment.totalAmount,
+                    date: payment.date,
+                }
+                allPay.push(newUser);
+            })
         });
     });
 
@@ -99,16 +78,95 @@ document.getElementById('Payments').addEventListener("click", () => {
 });
 
 let AllUsers = JSON.parse(localStorage.getItem("allUserData"));
-console.log(AllUsers + "add");
+
 let AllComplaints = getComplaints();
 let AllApplications = getApplications();
 let AllPayments = getPayments();
 
-function LoadAdmin(){
-    // if(localStorage.getItem("sessionAdminId") === null){
-    //     window.location.href = "PageAdminLogin.html";
-    // }
+export function loadAdmin(){
+    if(localStorage.getItem("sessionAdminId") === null){
+        window.location.href = "PageAdminLogin.html";
+    }
     loadAdminData();
 }
 
-window.LoadAdmin = LoadAdmin;
+const adminHandler = {
+    data: {
+        complaints: AllComplaints,
+        newApplications: AllApplications,
+        payments: AllPayments,
+    },
+
+    viewComplaints: function() {
+        const complaints = this.data.complaints;
+        let content = '<h3>Complaints</h3><ul class="list-group">';
+        complaints.forEach(complaint => {
+            content += `<li class="list-group-item">User: ${complaint.user}, Complaint: ${complaint.complaint}</li>`;
+        });
+        content += '</ul>';
+        document.getElementById('adminContent').innerHTML = "";
+        document.getElementById('adminContent').innerHTML = content;
+    },
+
+    viewNewApplications: function() {
+        const applications = this.data.newApplications;
+        let content = '<h3>New Applications</h3><ul class="list-group">';
+
+        for (let i = 0; i < applications.length; i++) {
+            const application = applications[i].application;
+            content += `<li class="list-group-item"><h5 class="h5"><a class='userLink text-info fw-bold' id='${applications[i].userid}'> ${applications[i].userid}</a></h5>` + `
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-header bg-primary text-white"><strong>${application.applicantName}</strong></div>
+                    <div class="card-body">
+                        <p><strong>Applicant Type:</strong> ${application.applicantType}</p>
+                        <p><strong>Contact Person:</strong> ${application.contactPerson}</p>
+                        <p><strong>Email:</strong> ${application.email}</p>
+                        <p><strong>Phone:</strong> ${application.phone}</p>
+                        <p><strong>Property Address:</strong> ${application.propertyAddress}</p>
+                        <p><strong>Property Use:</strong> ${application.propertyUse}</p>
+                        <p><strong>Electric Load:</strong> ${application.electricLoad} kW</p>
+                        <p><strong>Voltage Requirements:</strong> ${application.voltageRequirements}</p>
+                        <p><strong>Other Requirements:</strong> ${application.otherRequirements}</p>
+                        <p><strong>Business Registration:</strong> ${application.businessRegistration}</p>
+                    </div>
+                </div>
+            ` + `</li>`
+        }
+
+        content += '</ul>';
+        
+        document.getElementById('adminContent').innerHTML = "";
+        document.getElementById('adminContent').innerHTML = content;
+        
+        addLinks(document.getElementById('adminContent'));
+    },
+
+    viewNewPayments: function() {
+        const payments = this.data.payments;
+        let content = '<h3>New Payments</h3><ul class="list-group">';
+        payments.forEach(payment => {
+            content += `<li class="list-group-item">User: <a class='userLink text-info fw-bold' id='${payment.userid}'>${payment.userid}</a>, Amount: ${payment.amount}, Date: ${payment.date}</li>`;
+        });
+        content += '</ul>';
+        document.getElementById('adminContent').innerHTML = "";
+        document.getElementById('adminContent').innerHTML = content;
+
+        addLinks(document.getElementById('adminContent'));
+    }
+};
+
+function addLinks(element){
+    let alllinks = element.getElementsByClassName("userLink");
+    for (const link of alllinks) {
+        link.addEventListener("click", (event) => {
+            let tuser;
+            AllUsers.forEach(user => {
+                if(user.id === link.id) tuser = user;
+            })
+            localStorage.setItem("tempUser", JSON.stringify(tuser));
+            window.location.href = "PageUser.html";
+        })
+    }
+}
+
+window.loadAdmin = loadAdmin;
