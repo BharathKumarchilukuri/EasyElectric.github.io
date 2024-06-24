@@ -4,9 +4,10 @@ function addComplaint(complaint){
     } else {
         currUser.complaints.push(complaint);
     }
+
     let allUserData = [];
     let users = JSON.parse(localStorage.getItem("allUserData"));
-    let userId = localStorage.getItem("userId");
+    let userId = localStorage.getItem("UserId");
     for (const iterator of users) {
         if (iterator.id == userId) {
             allUserData.push(currUser);
@@ -25,7 +26,7 @@ function addFeedBack(feedback){
     }
     let allUserData = [];
     let users = JSON.parse(localStorage.getItem("allUserData"));
-    let userId = localStorage.getItem("userId");
+    let userId = localStorage.getItem("UserId");
     for (const iterator of users) {
         if (iterator.id == userId) {
             allUserData.push(currUser);
@@ -36,12 +37,12 @@ function addFeedBack(feedback){
     localStorage.setItem("allUserData", JSON.stringify(allUserData));
 }
 
-
 function FeedBackLoad() {
     let users = JSON.parse(localStorage.getItem("allUserData"));
-    let userId = localStorage.getItem("userId");
+    let userId = localStorage.getItem("UserId");
     for (const iterator of users) {
         if (iterator.id == userId) {
+            console.log(userId);
             currUser = iterator;
             let connections = document.getElementById("Connections");
             connections.innerHTML = '';
@@ -54,22 +55,26 @@ function FeedBackLoad() {
         }
     }
 
-    document.getElementById("complaint").addEventListener("submit", (event) => {
+    document.getElementById("ComplaintForm").addEventListener("submit", (event) => {
         event.preventDefault();
         let complaint = {
             onConnection: document.getElementById("Connections").value,
+            issueDate: document.getElementById('CDate').value,
             reason: document.getElementById("Reason").value,
             detailedC: document.getElementById("DetailedComplaint").value,
+            complaintSubmitDate: new Date().toISOString()
         };
 
         addComplaint(complaint);
+        
     });
 
-    document.getElementById("feedback").addEventListener("submit", (event) => {
+    document.getElementById("FeedBackForm").addEventListener("submit", (event) => {
         event.preventDefault();
         let feedback = {
             experience: document.getElementById("experience").value,
             detailedF: document.getElementById("DetailedFeedback").value,
+            FeedBackDate: new Date().getDate()
         };
 
         addFeedBack(feedback);

@@ -32,7 +32,7 @@ function AddApplication(data){
     }
     let allUserData = [];
     let users = JSON.parse(localStorage.getItem("allUserData"));
-    let userId = localStorage.getItem("userId");
+    let userId = localStorage.getItem("UserId");
     for (const iterator of users) {
         if (iterator.id == userId) {
             allUserData.push(currUser);
@@ -40,6 +40,7 @@ function AddApplication(data){
             allUserData.push(iterator);
         }
     }
+    console.log(allUserData);
     localStorage.setItem("allUserData", JSON.stringify(allUserData));
     console.log(JSON.parse(localStorage.getItem("allUserData")));
 }
