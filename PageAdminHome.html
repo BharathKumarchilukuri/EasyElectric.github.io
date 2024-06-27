@@ -10,10 +10,13 @@
 </head>
 <body onload="loadAdmin()">
     <header>
-        <nav class="text-white navbar navbar-expand-xl bg-dark p-2">
+        <nav class="text-white navbar navbar-expand-xl bg-dark d-flex justify-content-between p-2">
             <div>
                 <!-- EE- Easy Electric -->
                 <h1 class="bg-dark text-bold h1 p-2 m-1">E Bill</h1>
+            </div>
+            <div class="bg-danger rounded ps-1 pe-1 m-1 ms-2 me-2">
+                <button class="btn btn-transparent"><a class="text-decoration-none p-2 text-white" id="adminLogOutLink" href="PageAdminLogin.html">Logout</a></button>
             </div>
         </nav>
     </header>
@@ -24,7 +27,7 @@
         <button class="btn btn-info my-2" id="Applications">View New Applications</button>
         <button class="btn btn-info my-2" id="Payments">View New Payments</button>
     
-        <div id="adminContent"></div>
+        <div id="adminContent" class="my-2"></div>
 
     </main>
     <footer class="position-sticky bottom-0 w-100 text-center p-2 bg-dark text-white">
