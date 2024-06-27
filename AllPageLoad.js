@@ -7,11 +7,12 @@ function Load(){
     // localStorage.removeItem("UserId");
     loadData('user');
 }
-
-document.getElementById("logOutLink").addEventListener("click", (event) => {
-    event.preventDefault();
-    removeAllData();
-    window.location.href = "PageLogin.html";
-})
+if(document.getElementById("logOutLink")){
+    document.getElementById("logOutLink").addEventListener("click", (event) => {
+        event.preventDefault();
+        removeAllData();
+        window.location.href = "PageLogin.html";
+    });
+}
 
 window.Load = Load;
