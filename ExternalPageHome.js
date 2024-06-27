@@ -1,7 +1,6 @@
 export async function VerifyUser(username, password) {
     await loadData('user');
     for (const user of allUserData) {
-        console.log(user.username);
         if(user.username === username){
             if(user.password === password){
                 localStorage.setItem("UserId", user.id);
@@ -17,7 +16,6 @@ export async function VerifyUser(username, password) {
 
 export async function VerifyAdmin(username, password) {
     await loadData('admin');
-    console.log(allAdminData);
     for (const admin of allAdminData) {
         if(admin.username == username){
             if(admin.password == password){
@@ -41,14 +39,13 @@ export async function CheckUser(userDetails){
     for (const user of allUserData) {
         if(user.mobile != userDetails.mobileNum && user.email != userDetails.email){
             for (const iterator of user.connections) {
-                for (const it01 of userDetails.connectionDetails) {
+                for (const it01 of userDetails.connections) {
                     if(iterator.id == it01.id){
                         return -1;
                     }
                 }
             }
             allUserData.push(userDetails);
-            console.log(allUserData);
             localStorage.setItem("allUserData", JSON.stringify(allUserData));
             return 1;
         } else {
