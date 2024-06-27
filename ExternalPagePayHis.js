@@ -1,5 +1,5 @@
 
-function displayConnections(user) {
+function getHistory(user) {
     if (user) {
         // Clear previous content
         var connectionsContainer = document.getElementById('connectionsContainer');
@@ -54,4 +54,4 @@ for (const iterator of JSON.parse(localStorage.getItem("allUserData"))) {
     if (userId == iterator.id) user = iterator;
 }
 
-displayConnections(user);
+getHistory(user);

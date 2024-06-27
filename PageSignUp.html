@@ -65,14 +65,14 @@
                     </li>
 
                     <li class="nav-item bg-danger rounded ps-1 pe-1 m-1 ms-2 me-2">
-                        <a class="nav-link text-white" href="index.html">Logout</a>
+                        <a class="nav-link text-white" id="logOutLink" href="index.html">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
     <!-- <main class="container-fluid w-100"> -->
-    <main class="m-1 m-lg-3 p-1 p-lg-3">
+    <main class=" m-auto m-1 m-lg-3 p-1 p-lg-3">
 	    <div class="container bg-light border rounded-1 p-0">
             <div class="bg-info rounded-top-1 text-dark">
                 <h2 class="h3 p-3">
@@ -83,32 +83,42 @@
                 <div id="personalDetails" name="personalDetails" class="pb-2">
                     <div class="form-group">
                         <label for="Name" class="form-label">Name: </label>
-                        <input type="text" class="form-control" name="Name" pattern="([a-zA-Z]+\s)*[a-zA-Z]+" required>
+                        <input type="text" id="Name" class="form-control" autocomplete="name" name="Name" pattern="([a-zA-Z]+\s)*[a-zA-Z]+" required>
                     </div>
                     
                     <label for="Mobile" class="form-label col col-md-2 m-0 p-0">Mobile Number: </label>
                     <div class="row m-0 align-items-center py-1 px-0">
                         <div class="form-group col-12 col-sm-8 d-flex m-0 py-1 p-0">
-                            <input type="tel" class="form-control" name="Mobile" required>
+                            <input type="tel" id="Mobile" class="form-control" name="Mobile" required>
                         </div>
                         <div class="form-group col-12 col-sm-4 d-sm-flex m-0 p-1">
-                            <label for="OTP" id="OTP" class="form-label m-auto col"><a href="#" class="btn btn-warning">OTP</a></label>
-                            <input type="number" aria-describedby="OTP" class="form-control m-0" name="OTP" minlength="6" maxlength="6" placeholder="OTP" required>
+                            <label for="OTP" class="form-label m-auto me-1 col"><a href="#" class="btn btn-warning">OTP</a></label>
+                            <input type="number" id="OTP" aria-describedby="OTP" class="form-control m-0" name="OTP" minlength="6" maxlength="6" placeholder="OTP" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="Password" class="form-label">Password: </label>
-                        <input type="password" class="form-control" name="Password" pattern="([a-zA-Z0-9]+){6,12}" minlength="6" maxlength="12" required>
+                        <input type="password" class="form-control" id="Password" name="Password" pattern="([a-zA-Z0-9]+){6,12}" minlength="6" maxlength="12" required>
                     </div>
 
                     <div class="form-group">
                         <label for="ConfPassword" class="form-label">Confirm Password: </label>
-                        <input type="password" class="form-control" name="ConfPassword" pattern="([a-zA-Z0-9]+){6,12}" minlength="6" maxlength="12" required>
+                        <input type="password" class="form-control" id="ConfPassword" name="ConfPassword" pattern="([a-zA-Z0-9]+){6,12}" minlength="6" maxlength="12" required>
+                        <div id="passwordError" class="text-danger" style="display: none;">Does not match with password</div>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <h6>Your Connections</h6>
+                        <ul class="list-group">
+                            <div id="YourConnections">
+                                
+                            </div>
+                        </ul>
                     </div>
                 </div>
                 <div name="connectionDetails" class="border border-1 border-dark p-2 rounded-1">
-                    <p class="text-danger">**You need to have minimum one Connection to create account</p>
+                    <p class="text-info" id="connInfo">**You need to have minimum one Connection to create account</p>
                     <a class="btn btn-outline-info text-dark" data-bs-toggle="collapse" href="#ConnectionForm" aria-expanded="false" aria-controls="ConnectionForm">Add Connection</a>
                     <div class="collapse border border-2 rounded p-2" id="ConnectionForm">
                         <div class="form-group">
@@ -117,39 +127,39 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="ConnectionID">ID: </label>
-                            <input type="text" name="ConnectionID" class="form-control" pattern="([a-zA-Z0-9]+){12}" required>
+                            <input type="text" id="ConnectionID" name="ConnectionID" class="form-control" pattern="([a-zA-Z0-9]+){12}">
                         </div>
                         <br>
                         <div class="form-group">
-                            <label class="form-label" for="Name">Name: </label>
-                            <input class="form-control" type="text" name="ConnectionName" pattern="([a-zA-Z]+\s)*[a-zA-Z]+" required>
+                            <label class="form-label" for="ConnectionName">Name: </label>
+                            <input class="form-control" id="ConnectionName" type="text" name="ConnectionName" pattern="([a-zA-Z]+\s)*[a-zA-Z]+">
                         </div>
                         <br>
                         <div class="row p-0">
                             <h5 class="h5">Address</h5>
                             <div class="col-sm m-0">
-                                <input type="text" class="form-control my-2" name="Address-Doorno" placeholder="Door No., Flat No." required>
-                                <input type="text" class="form-control md-1 mb-sm-2" name="Address-City" placeholder="City" required>                                
+                                <input type="text" class="form-control my-2" id="Doorno" name="Address-Doorno" placeholder="Door No., Flat No.">
+                                <input type="text" class="form-control md-1 mb-sm-2" name="Address-City" placeholder="City">                                
                             </div>
                             <div class="col-sm m-0">
-                                <input type="text" class="form-control my-2" name="Address-Street" placeholder="Street name, Village, Town" required>
-                                <input type="text" class="form-control mb-1" name="State" id="state" placeholder="State" required>
+                                <input type="text" class="form-control my-2" id="Street" name="Address-Street" placeholder="Street name, Village, Town">
+                                <input type="text" class="form-control mb-1" name="State" id="State" placeholder="State">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 col-sm-4">
-                            <input type="number" class="form-control" name="Address-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>
+                            <input type="number" class="form-control" id="pincode" name="Address-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*">
                             </div>
                         </div>
                         <div class="d-flex">
-                            <input class="m-3 ms-0 btn btn-secondary" type="button" value="Add">
-                            <input class="m-3 ms-0 btn btn-danger" type="button" value="cancel">
+                            <input class="m-2 ms-0 btn btn-secondary" id="AddConnection" type="button" value="Add">
+                            <a class="m-2 ms-0 btn btn-danger text-dark" data-bs-toggle="collapse" href="#ConnectionForm" aria-expanded="false" aria-controls="ConnectionForm">Cancel</a>
                         </div>
                     </div>
                 </div>
                 <hr class="bg-dark">
                 <div class="d-sm-flex justify-content-between p-3">
-                    <button class="btn btn-success" type="submit">Register</button><br>
+                    <button class="btn btn-success">Register</button>
                     <div class="d-flex align-items-center">
                         <p class="m-0 p-1">Already a user?</p>
                         <a href="PageLogin.html" class="btn btn-outline-danger">Login</a>
