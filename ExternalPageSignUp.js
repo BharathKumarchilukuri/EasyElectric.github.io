@@ -36,7 +36,14 @@ function loadSignUp(){
         let OTP = document.querySelector('input[name="OTP"]').value;
         newUser.password = document.querySelector('input[name="Password"]').value;
 
-        newUser.connectionDetails = connectionDetails;
+        newUser.connections = connectionDetails;
+        
+        newUser.connections.forEach((connection) => {
+            connection.unitsConsumed = 0;
+            connection.amount = 0;
+            connection.tax = 0;
+            connection.payments = [];
+        })
     
         let alreadyUser = await CheckDetails(newUser);
         if(alreadyUser == -1){
@@ -124,6 +131,8 @@ function removeConnection(index) {
 }
 
 function SessionSuccess() {
+    console.log("In session");
+    console.log(localStorage.getItem("sessionId"));
     if(localStorage.getItem("sessionId") === null){
         document.getElementById("HomeLink").classList.add("disabled");
         document.getElementById("MngConneLink").classList.add("disabled");

@@ -1,4 +1,4 @@
-import { loadAdminData } from "./ExternalPageHome.js";
+import { loadAdminData, removeAllData } from "./ExternalPageHome.js";
 
 function getComplaints(){
     let allComp = [];
@@ -7,7 +7,8 @@ function getComplaints(){
             user.complaints.forEach((complaint) => {
                 let newUser = {
                     userid: user.id,
-                    complaint: complaint,
+                    reason: complaint.reason,
+                    complaint: complaint.detailedComplaint,
                 }
                 allComp.push(newUser);
             });
@@ -42,6 +43,7 @@ function getPayments(){
             connection.payments.forEach((payment) => {
                 let newUser = {
                     userid: user.id,
+                    connection: connection,
                     amount : payment.totalAmount,
                     date: payment.date,
                 }
@@ -101,7 +103,7 @@ const adminHandler = {
         const complaints = this.data.complaints;
         let content = '<h3>Complaints</h3><ul class="list-group">';
         complaints.forEach(complaint => {
-            content += `<li class="list-group-item">User: ${complaint.user}, Complaint: ${complaint.complaint}</li>`;
+            content += `<li class="list-group-item">User: ${complaint.userid}, <br>Reason: ${complaint.reason},<br> Complaint: ${complaint.complaint}</li>`;
         });
         content += '</ul>';
         document.getElementById('adminContent').innerHTML = "";
@@ -110,7 +112,9 @@ const adminHandler = {
 
     viewNewApplications: function() {
         const applications = this.data.newApplications;
-        let content = '<h3>New Applications</h3><ul class="list-group">';
+        let content = '<h3>New Applications</h3>';
+
+        content += AddTable();
 
         for (let i = 0; i < applications.length; i++) {
             const application = applications[i].application;
@@ -143,14 +147,29 @@ const adminHandler = {
 
     viewNewPayments: function() {
         const payments = this.data.payments;
-        let content = '<h3>New Payments</h3><ul class="list-group">';
+        let heading = '<h3>New Payments</h3>';
+        let content = `<thead>
+                            <tr>
+                              <th>User</th>
+                              <th>Amount</th>
+                              <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+
         payments.forEach(payment => {
-            content += `<li class="list-group-item">User: <a class='userLink text-info fw-bold' id='${payment.userid}'>${payment.userid}</a>, Amount: ${payment.amount}, Date: ${payment.date}</li>`;
+            content += `<tr>
+                            <td><a class='userLink text-info fw-bold' id='${payment.userid}'>${payment.userid}</a></td>
+                            <td class="d-flex justify-content-end">&#8377 ${payment.amount}</td>
+                            <td>${payment.date}</td>
+                        </tr>`;
         });
-        content += '</ul>';
+        content += `</tbody>`
+        
+        content = heading + AddTable(content);
+        
         document.getElementById('adminContent').innerHTML = "";
         document.getElementById('adminContent').innerHTML = content;
-
         addLinks(document.getElementById('adminContent'));
     }
 };
@@ -168,5 +187,16 @@ function addLinks(element){
         })
     }
 }
+
+function AddTable(content){
+    return `<table class="table table-bordered">` + content + `</table>`;
+
+}
+
+document.getElementById('adminLogOutLink').addEventListener("click", (event) => {
+    event.preventDefault();
+    removeAllData();
+    window.location.href = "PageAdminLogin.html";
+})
 
 window.loadAdmin = loadAdmin;
