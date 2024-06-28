@@ -36,6 +36,12 @@ export function loadLogin() {
                 localStorage.setItem("sessionId", createSessionId());
                 window.location.href = "PageHome.html";
             }
+        } else {
+            let errorElements = document.getElementById("captchaError");
+            errorElements.style.display = "block";
+            setInterval(()=> {
+                errorElements.style.display  = "none";
+            }, 10000);
         }
     });
 

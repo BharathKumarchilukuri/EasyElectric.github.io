@@ -114,8 +114,6 @@ const adminHandler = {
         const applications = this.data.newApplications;
         let content = '<h3>New Applications</h3>';
 
-        content += AddTable();
-
         for (let i = 0; i < applications.length; i++) {
             const application = applications[i].application;
             content += `<li class="list-group-item"><h5 class="h5"><a class='userLink text-info fw-bold' id='${applications[i].userid}'> ${applications[i].userid}</a></h5>` + `
@@ -190,7 +188,6 @@ function addLinks(element){
 
 function AddTable(content){
     return `<table class="table table-bordered">` + content + `</table>`;
-
 }
 
 document.getElementById('adminLogOutLink').addEventListener("click", (event) => {

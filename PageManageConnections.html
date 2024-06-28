@@ -79,94 +79,55 @@
             <button class="btn btn-outline-info"><a class="text-decoration-none text-dark" href="PageNewConnection.html" title="To Apply for a New Connection">Apply for New Connection</a></button>
             <button class="btn btn-outline-secondary"><a class="text-decoration-none text-dark" href="PageApplyChange.html" title="For making changes in existing connection">Apply for Change</a></button>
         </div>
-        <ul class="list-group">
-            <li class="list-group-item m-0 p-0">
-                <div class="d-flex justify-content-between align-items-center bg-light m-0 p-2" data-bs-toggle="collapse" data-bs-target="#collapseConnection01" aria-expanded="false" aria-controls="collapseConnection01">
-                    <h5 class="mb-0">Connection 01</h5>
-                    <div class="btn-group">
-                        <button class="btn btn-info text-dark" onclick="alert('You can only edit name of Connection')">Edit</button>
-                        <button class="btn btn-danger" onclick="confirm('This will Delete the Connection')">Delete</button>
-                    </div>
-                </div>
-                <div id="collapseConnection01" class="collapse p-2">
-                    <table class="table">
-                        <tr>
-                            <td class="fw-bold text-start">Name:</td>
-                            <td class="text-end">User's Name</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-start">Meter ID:</td>
-                            <td class="text-end">ABC000023000</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-start">Address:</td>
-                            <td class="text-end">012, ABC, DCBA - 854765</td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-    
-            <li class="list-group-item m-0 p-0">
-                <div class="d-flex justify-content-between align-items-center bg-light p-2" data-bs-toggle="collapse" data-bs-target="#collapseConnection02" aria-expanded="false" aria-controls="collapseConnection02">
-                    <h5>Connection 02</h5>
-                    <div class="btn-group">
-                        <button class="btn btn-info text-dark" onclick="alert('You can only edit name of Connection')">Edit</button>
-                        <button class="btn btn-danger text-white" onclick="confirm('This will Delete the Connection')">Delete</button>
-                    </div>
-                </div>
-                <div id="collapseConnection02" class="collapse p-2">
-                    <table class="table">
-                        <tr>
-                            <td class="fw-bold text-start">Name:</td>
-                            <td class="text-end">User's Name</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-start">Meter ID:</td>
-                            <td class="text-end">ABC000023000</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-start">Address:</td>
-                            <td class="text-end">012, ABC, DCBA - 854765</td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-    
-            <li class="list-group-item m-0 p-0">
-                <div class="bg-light p-2">
-                    <h5 class="">Add Connection Form</h5>
-                </div>
-                <div id="collapseConnectionForm" class="collapse p-2">
-                    <form id="ConnectionForm">
-                        <strong>Note: Make sure all details match with those on your Connection.</strong><br>
-                        <div class="mb-3">
-                            <label for="ConnectionID" class="form-label">ID:</label>
-                            <input type="text" id="ConnectionID" name="ConnectionID" pattern="([a-zA-Z0-9]+){12}" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Name" class="form-label">Name:</label>
-                            <input type="text" id="Name" name="Name" pattern="([a-zA-Z]+\s)*[a-zA-Z]+" class="form-control" required>
-                        </div>
-                        <fieldset class="mb-3">
-                            <legend>Address:</legend>
-                            <div class="mb-3">
-                                <input type="text" name="Address-Doorno" placeholder="Door No., Flat No." class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" name="Address-Street" placeholder="Street name, Village, Town" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" name="Address-City" placeholder="City" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="number" name="Address-Pincode" placeholder="Pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" class="form-control" required>
-                            </div>
-                        </fieldset>
-                        <button type="button" onclick="createConnection()" class="btn btn-success">Add</button>
-                    </form>
-                </div>
-            </li>
+        <ul class="list-group" id="AllConnections">
+            
         </ul>
+        <li class="list-group-item m-0 p-0">
+            <div class="bg-light p-2">
+                <h5 class="h5">Add Connection Form</h5>
+            </div>
+            <div id="collapseConnectionForm" class="collapse p-2">
+                <form id="ConnectionForm">
+                    <!-- <a class="btn btn-outline-info text-dark" data-bs-toggle="collapse" href="#ConnectionForm" aria-expanded="false" aria-controls="ConnectionForm">Add Connection</a> -->
+                    <div class="border border-2 rounded p-2">
+                        <div class="form-group">
+                            <strong>Note: Make sure all details matches with that on your Connection.</strong>
+                            <hr class="bg-dark">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ConnectionID">ID: </label>
+                            <input type="text" id="ConnectionID" name="ConnectionID" class="form-control" required pattern="([a-zA-Z0-9]+){12}">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label" for="ConnectionName">Name: </label>
+                            <input class="form-control" id="ConnectionName" type="text" name="ConnectionName" required pattern="([a-zA-Z]+\s)*[a-zA-Z]+">
+                        </div>
+                        <br>
+                        <div class="row p-0">
+                            <h5 class="h5">Address</h5>
+                            <div class="col-sm m-0">
+                                <input type="text" class="form-control my-2" id="AddressDoorNo" name="Address-Doorno" required placeholder="Door No., Flat No.">
+                                <input type="text" class="form-control md-1 mb-sm-2" id="AddressCity" name="Address-City" required placeholder="City">                                
+                            </div>
+                            <div class="col-sm m-0">
+                                <input type="text" class="form-control my-2" id="AddressStreet" name="Address-Street" required placeholder="Street name, Village, Town">
+                                <input type="text" class="form-control mb-1" name="State" id="AddressState" required placeholder="State">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-4">
+                            <input type="number" class="form-control" id="AddressPincode" name="Address-Pincode" required placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*">
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <input class="m-2 ms-0 btn btn-secondary" id="AddConnection" type="submit" value="Add">
+                            <a class="m-2 ms-0 btn btn-danger text-dark" data-bs-toggle="collapse" href="#collapseConnectionForm" aria-expanded="false" aria-controls="collapseConnectionForm">Cancel</a>
+                        </div>
+                    </div>                    
+                </form>
+            </div>
+        </li>
     </main>
     </main>
     <footer class="position-sticky bottom-0 w-100 text-center p-2 bg-dark text-white">
@@ -174,6 +135,7 @@
     </footer>
 
     <script type="module" src="ExternalPageHome.js"></script>
+    <script type="module" src="ExternalPageManageConnections.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

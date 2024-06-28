@@ -7,6 +7,13 @@
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <title>Log In</title>
+
+        <style>
+            #captchaError{
+                display: none;
+            }
+        </style>
+
     </head>
 <body>
     <header>
@@ -71,24 +78,25 @@
         </nav>
     </header>
     <main class="my-5">
-        <div class="container col-12 col-md-6 p-0 border border-2 rounded">
+        <div class="container shadow col-12 col-md-6 p-0 border border-2 rounded">
             <div class="d-flex bg-light justify-content-between">
                 <h4 class="p-2 py-3 m-0">Login</h4>
                 <div class="align-items-center m-2">
-                    <a class="btn btn-primary" href="PageAdminLogin.html" title="Admin Login">Admin</a>
+                    <a class="btn btn-primary" href="PageAdminLogin.html" title="Admin Login">Employee</a>
                 </div>
             </div>
             <form class="form p-3" id="LoginForm">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
-                    <input class="form-control" type="text" name="username" id="username" minlength="4" maxlength="20" required>
+                    <input class="form-control" type="text" name="username" id="username" minlength="4" maxlength="20" pattern="[A-Za-z]+[A-Za-z_\d]+" required>
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Password</label>
-                    <input class="form-control" type="password" name="password" id="password" minlength="6" maxlength="20" required>
+                    <input class="form-control" type="password" name="password" pattern="[A-Za-z]+[A-Za-z\d]+" id="password" minlength="6" maxlength="20" required>
                 </div>
-                <div class="form-group row m-3 mx-0 d-flex justify-content-between">            
-                    <input class="form-control col" type="text" name="captchaInput" id="captchaInput" placeholder="CAPTCHA">
+                <div class="form-group row m-3 mx-0 d-flex justify-content-between">       
+                    <label for="captchaInput" class="form-label p-0 m-0">CAPTCHA</label>     
+                    <input class="form-control col" type="text" name="captchaInput" id="captchaInput">
                     <div class="form-group d-flex p-0 mx-1 col">
                         <button class="btn btn-warning mx-1" type="button" id="RegenerateCap">Generate</button>
                         <span class="border border-2 px-2 mx-1 rounded">
@@ -96,12 +104,36 @@
                         </span>
                     </div>
                 </div>
-        
+                <div id="captchaError">
+                    <p class="text-danger">
+                        please fill out this field correctly.
+                    </p>
+                </div>
+
                 <div class="form-group d-flex justify-content-between">
-                    <button class="btn btn-success" type="submit">Login</button>
+                    <div>
+                        <button class="btn btn-success" type="submit">Login</button>
+                        <a href="#forgotPassword" class="btn text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="forgotPassword">forgot password</a>
+                    </div>
                     <button class="btn btn-outline-primary" type="reset"><a class="nav-link" href="PageSignUp.html">Register</a></button>
                 </div>
             </form>
+            <div id="forgotPassword" class="collapse m-3">
+                <h5>
+                    Forgot Password
+                </h5>    
+                <form>
+                    <div class="form-group">
+                        <label for="usernameForgot" class="form-label">Username</label>
+                        <input class="form-control" type="text" name="usernameForgot" id="usernameForgot" minlength="4" maxlength="20" pattern="[A-Za-z]+[A-Za-z_\d]+" required>
+                    </div>
+                    <button class="btn btn-success my-2" id="forgotPasswordBtn" type="submit">Send</button>
+                    <div class="form-group my-2">
+                        <label for="OTP">OTP:</label>
+                        <input type="number" class="form-control" id="OTP" minlength="6" maxlength="6" pattern="[0-9]{6}" name="OTP">
+                    </div>
+                </form>
+            </div>
         </div>  
     </main>
     <footer class="position-sticky bottom-0 w-100 text-center p-2 bg-dark text-white">

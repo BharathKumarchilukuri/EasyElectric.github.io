@@ -61,7 +61,8 @@
                     "electricLoad":150,
                     "voltageRequirements": "Three-phase, 480V",
                     "otherRequirements": "Backup generator integration",
-                    "businessRegistration": "BR123456"
+                    "businessRegistration": "BR123456",
+                    "status": "Requested"
                 },
                 {
                     "applicantName": "XYZ Retail Inc.",
@@ -74,7 +75,8 @@
                     "electricLoad": 75,
                     "voltageRequirements": "Single-phase, 240V",
                     "otherRequirements": "Energy-efficient lighting",
-                    "businessRegistration": "BR654321"
+                    "businessRegistration": "BR654321",
+                    "status": "Requested"
                 },
                 {
                     "applicantName": "LMN Hospitality",
@@ -87,7 +89,8 @@
                     "electricLoad": 200,
                     "voltageRequirements": "Three-phase, 480V",
                     "otherRequirements": "Solar power integration",
-                    "businessRegistration": "BR789123"
+                    "businessRegistration": "BR789123",
+                    "status": "Requested"
                 }
             ],
             "complaints": [
@@ -95,12 +98,14 @@
                     "connectionId": "EC1001",
                     "reason": "Frequent power outages",
                     "detailedComplaint": "The power goes out multiple times a week without any prior notice.",
+                    "status": "Requested",
                     "date": "2023-06-15"
                 },
                 {
                     "connectionId": "EC1002",
                     "reason": "High electricity bill",
                     "detailedComplaint": "The electricity bill for the last month was unusually high compared to previous months.",
+                    "status": "Requested",
                     "date": "2023-06-18"
                 }
             ]
@@ -136,6 +141,7 @@
                     "connectionId": "EC1003",
                     "reason": "Voltage fluctuation",
                     "detailedComplaint": "There are frequent voltage fluctuations causing damage to office equipment.",
+                    "status": "Requested",
                     "date": "2023-06-20"
                 }
             ]
@@ -188,12 +194,14 @@
                     "connectionId": "EC1004",
                     "reason": "Meter reading issue",
                     "detailedComplaint": "The meter reading seems incorrect as the consumption reported is much higher than actual usage.",
+                    "status": "Requested",
                     "date": "2023-06-22"
                 },
                 {
                     "connectionId": "EC1005",
                     "reason": "Connection delay",
                     "detailedComplaint": "There has been a significant delay in getting a new connection approved.",
+                    "status": "Requested",
                     "date": "2023-06-25"
                 }
             ]
