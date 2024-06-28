@@ -6,6 +6,7 @@ function Load(){
     }
     // localStorage.removeItem("UserId");
     loadData('user');
+    if(document.getElementById("PageSignUp")) document.getElementById("PageSignUp").classList.add("disabled");
 }
 if(document.getElementById("logOutLink")){
     document.getElementById("logOutLink").addEventListener("click", (event) => {

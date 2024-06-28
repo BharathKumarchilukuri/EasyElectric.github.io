@@ -9,6 +9,11 @@
     <title>New Connection</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <style>
+        .allErrorDiv{
+            display: none;
+        }
+    </style>
     <script type="module" src="AllPageLoad.js"></script>
 </head>
 <body onload="Load()">
@@ -73,20 +78,53 @@
                 </ul>
             </div>
         </nav>
+        <div class="p-4">
+            <h4 class="h4">Apply for a new Connection</h4>
+        </div>
     </header>
-    <main class="container p-2 py-4">
-        <form id="userDetailsForm">
-            <ul class="list-group">
-                <li class="list-group-item bg-info py-4">
-                    <h4 class="h4">Apply for a new Connection</h4>
-                    <small class="text-danger">**All fields are necessary</small>
+    <main class="d-flex">
+        <div class="bg-light w-25 d-none d-lg-block me-2">
+            <ul class="list-group border border-0 rounded-0">
+                <li class="list-group-item">
+                    <a href="#UserDetails" class="col-12 w-100 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="UserDetails">User Details</a>
                 </li>
+                <li class="list-group-item">
+                    <a href="#Address" class="col-12 w-100 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="Address">Address Details</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#ConnectionDetails" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ConnectionDetails">Connection Details</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#DocumentsUpload" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="DocumentsUpload">Documents Upload</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#Agreement" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="Agreement">Agreement</a>
+                </li>
+            </ul>
+            <div class="allErrorDiv py-2">
+                <p class="text-danger text-center">
+                    *Please fill ALL the details correctly.
+                </p>
+            </div>
+            <button class="btn btn-warning d-none d-lg-block my-2" type="submit" id="finalSubmit">Schedule Verification</button>
+
+        </div>
+        <div class=" flex-fill">
+            <li class="list-group-item bg-info p-2 px-4">
+                <small class="text-danger">**All fields are necessary</small>
+            </li>
+            <form id="userDetailsForm">
                 <li class="list-group-item m-0 p-0">
-                    <div class="w-100 bg-light p-3 py-4 row m-0">
+                    <div class="w-100 bg-light p-3 py-4 row m-0 d-lg-none">
                         <a href="#UserDetails" class="col-12 w-100 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="UserDetails">User Details</a>
                     </div>
                     
-                    <div class="collapse show m-1 m-lg-4" id="UserDetails">
+                    <div class="collapse show p-1 p-lg-4 show" id="UserDetails">
+                        <div class="d-none d-lg-block">
+                            <h5>
+                                User Details
+                            </h5>
+                        </div>
                         <div class="form-group my-1">
                             <label class="form-label" for="Name">Name: </label>
                             <input class="form-control" id="Name" type="text" name="Name" required pattern="[a-zA-z]+([a-zA-z]\s)*" minlength="6" maxlength="20" autocomplete="name">
@@ -118,182 +156,234 @@
                         <button class="btn btn-primary my-2" type="submit">Save User Details</button>
                     </div>
                 </li>
-            </ul>
-        </form>
-    
-        <form id="addressForm">
-            <li class="list-group-item m-0 p-0">
-                <div class="w-100 bg-light p-3 py-4 row m-0">
-                    <a href="#Address" class="col-12 w-100 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="Address">Address</a>
-                </div>
-                <div id="Address" class="collapse m-1 m-lg-4">
-                    <div class="form-group border border-1 rounded">
-                        <p class="h5 p-2 text-bold bg-light">
-                            Address
+            </form>
+        
+            <form id="addressForm">
+                <li class="list-group-item m-0 p-0">
+                    <div class="w-100 bg-light p-3 py-4 row m-0 d-lg-none">
+                        <a href="#Address" class="col-12 w-100 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="Address">Address</a>
+                    </div>
+                    <div id="Address" class="collapse m-1 m-lg-4">
+                        <div class="form-group border border-1 rounded">
+                            <p class="h5 p-2 text-bold bg-light">
+                                Address
+                            </p>
+                            <div class="row m-0 p-1">
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="text" name="Address-Doorno" placeholder="Door No., Flat No." required>
+                                </div>
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="text" name="Address-Street" placeholder="Street name, Village, Town" required>
+                                </div>
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="text" name="Address-City" placeholder="City" required>
+                                </div>
+                            </div>
+                            <div class="row m-0 p-1">
+                                <div class="col-12 col-lg-6 p-1">
+                                    <input class="form-control" type="text" name="Address-District" placeholder="District" required>
+                                </div>
+                                <div class="col-12 col-lg-6 p-1">
+                                    <input class="form-control" type="text" name="Address-State" placeholder="state" required>
+                                </div>
+                            </div>
+                            <div class="row m-0 p-1">
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="number" name="Address-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <button class="btn btn-primary my-2" type="submit">Save Address</button>                       
+                    </div>
+                </li>
+            </form>
+        
+            <form id="connectionDetailsForm">
+                <li class="list-group-item m-0 p-0">
+                    <div class="w-100 bg-light p-3 py-4 row m-0 d-lg-none">
+                        <a href="#ConnectionDetails" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ConnectionDetails">Connection Details</a>
+                    </div>
+        
+                    <div class="collapse p-3" id="ConnectionDetails">
+                        <div class="d-none d-lg-block">
+                            <h5>
+                                Connection Details
+                            </h5>
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyType">Type of Property:</label>
+                            <select class="form-control" id="propertyType" name="propertyType" required>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="industrial">Industrial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ownershipStatus">Ownership Status:</label>
+                            <select class="form-control" id="ownershipStatus" name="ownershipStatus" required>
+                                <option value="owner">Owner</option>
+                                <option value="tenant">Tenant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyId">Property Identification Number:</label>
+                            <input type="text" class="form-control" id="propertyId" name="propertyId">
+                        </div>
+        
+                        <div class="form-group">
+                            <input class="form-check-input" id="connaddress" type="checkbox" name="connaddress">
+                            <label class="form-label" for="connaddress">Same as User address</label>
+                        </div>
+                        
+                        <div class="form-group border border-1 rounded">
+                            <p class="h5 p-2 text-bold bg-light">
+                                Address
+                            </p>
+                            <div class="row m-0 p-1">
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="text" name="ConnAddress-Doorno" placeholder="Door No., Flat No." required>
+                                </div>
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="text" name="ConnAddress-Street" placeholder="Street name, Village, Town" required>
+                                </div>
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="text" name="ConnAddress-City" placeholder="City" required>
+                                </div>
+                            </div>
+                            <div class="row m-0 p-1">
+                                <div class="col-12 col-lg-6 p-1">
+                                    <input class="form-control" type="text" name="ConnAddress-District" placeholder="District" required>
+                                </div>
+                                <div class="col-12 col-lg-6 p-1">
+                                    <input class="form-control" type="text" name="ConnAddress-State" placeholder="state" required>
+                                </div>
+                            </div>
+                            <div class="row m-0 p-1">
+                                <div class="col-12 col-lg-4 p-1">
+                                    <input class="form-control" type="number" name="ConnAddress-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>
+                                </div>
+                            </div>
+                        </div> 
+        
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Connection Date:</label>
+                            <input type="date" class="form-control" id="preferredDate" name="preferredDate">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="meterType">Meter Type:</label>
+                            <select class="form-control" id="meterType" name="meterType">
+                                <option value="prepaid">Prepaid</option>
+                                <option value="postpaid">Postpaid</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary my-2" type="submit">Save Connection Details</button>
+                    </div>
+                </li>
+            </form>
+        
+            <form id="documentsUploadForm">
+                <li class="list-group-item m-0 p-0">
+                    <div class="w-100 bg-light p-3 py-4 row m-0 d-lg-none">
+                        <a href="#DocumentsUpload" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="DocumentsUpload">Documents Upload</a>
+                    </div>
+        
+                    <div id="DocumentsUpload" class="collapse p-3">
+                        <div class="d-none d-lg-block">
+                            <h5>
+                                Documents Upload
+                            </h5>
+                        </div>
+                        <div class="form-group my-2">
+                            <label class="form-label" for="Photo">Upload Photo: </label>
+                            <input class="form-control" id="Photo" type="file" name="Photo" required>
+                        </div>
+        
+                        <div class="form-group my-2">
+                            <label class="form-label" for="AadharCopy">Upload Aadhar: </label>
+                            <input class="form-control" id="AadharCopy" type="file" name="AadharCopy" required>
+                        </div>
+                        <div class="form-group my-2">
+                            <label class="form-label" for="addressProof">Address Proof: (Aadhar / Pancard / Voter ID / Driving License)</label>
+                            <input type="file" class="form-control" id="addressProof" name="addressProof" required>
+                        </div>
+                        <div class="form-group my-2">
+                            <label class="form-label" for="propertyProof">Property Ownership Proof (if applicable):</label>
+                            <input type="file" class="form-control" id="propertyProof" name="propertyProof">
+                        </div>
+                        <div class="form-group my-2">
+                            <label class="form-label" for="otherDocuments">Other Relevant Documents:</label>
+                            <input type="file" class="form-control" id="otherDocuments" name="otherDocuments">
+                        </div>
+                        <button class="btn btn-primary my-2" type="submit">Save Documents</button>
+                    </div>
+                </li>
+            </form>
+        
+            <form id="agreementForm">
+                <li class="list-group-item m-0 p-0">
+                    <div class="w-100 bg-light p-3 py-4 row m-0 d-lg-none">
+                        <a href="#Agreement" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="Agreement">Agreement</a>
+                    </div>
+                    <div id="Agreement" class="collapse p-3">
+                        <div class="d-none d-lg-block">
+                            <h5>
+                                Agreement
+                            </h5>
+                        </div>
+                        <div class="form-check my-2">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">I agree to the
+                                <a href="#termsModal" data-bs-toggle="modal" data-bs-target="#termsModal">
+                                    Terms and Conditions
+                                </a>
+                            </label>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="signature">Digital Signature (if applicable):</label>
+                            <input type="text" class="form-control" id="signature" name="signature">
+                        </div>
+                        <button class="btn btn-primary my-2" type="submit">Save Agreement</button>
+                    </div>
+                </li>
+            </form>
+        
+            <div class="allErrorDiv py-2">
+                <p class="text-danger text-center">
+                    *Please fill ALL the details correctly.
+                </p>
+            </div>
+            <button class="btn btn-warning d-lg-none my-2" type="submit" id="finalSubmit">Schedule Verification</button>
+        </div>
+        
+        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Terms and Conditions for New Connection
+                            <ul>
+                                <li>
+                                    All The data entered should be correct.
+                                </li>
+                                <li>
+                                    Any mismatch found in the data will result in the rejection of the application. 
+                                </li>
+                                <li>
+                                    You may need to visit the nearest outlet for any verifications, if necessary.
+                                </li>
+                            </ul>
                         </p>
-                        <div class="row m-0 p-1">
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="text" name="Address-Doorno" placeholder="Door No., Flat No." required>
-                            </div>
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="text" name="Address-Street" placeholder="Street name, Village, Town" required>
-                            </div>
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="text" name="Address-City" placeholder="City" required>
-                            </div>
-                        </div>
-                        <div class="row m-0 p-1">
-                            <div class="col-12 col-lg-6 p-1">
-                                <input class="form-control" type="text" name="Address-District" placeholder="District" required>
-                            </div>
-                            <div class="col-12 col-lg-6 p-1">
-                                <input class="form-control" type="text" name="Address-State" placeholder="state" required>
-                            </div>
-                        </div>
-                        <div class="row m-0 p-1">
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="number" name="Address-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>
-                            </div>
-                        </div>
-                    </div> 
-                    <button class="btn btn-primary my-2" type="submit">Save Address</button>                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
-            </li>
-        </form>
-    
-        <form id="connectionDetailsForm">
-            <li class="list-group-item m-0 p-0">
-                <div class="w-100 bg-light p-3 py-4 row m-0">
-                    <a href="#ConnectionDetails" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ConnectionDetails">Connection Details</a>
-                </div>
-    
-                <div class="collapse p-3" id="ConnectionDetails">
-                    <div class="form-group">
-                        <label for="propertyType">Type of Property:</label>
-                        <select class="form-control" id="propertyType" name="propertyType" required>
-                            <option value="residential">Residential</option>
-                            <option value="commercial">Commercial</option>
-                            <option value="industrial">Industrial</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="ownershipStatus">Ownership Status:</label>
-                        <select class="form-control" id="ownershipStatus" name="ownershipStatus" required>
-                            <option value="owner">Owner</option>
-                            <option value="tenant">Tenant</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="propertyId">Property Identification Number:</label>
-                        <input type="text" class="form-control" id="propertyId" name="propertyId">
-                    </div>
-    
-                    <div class="form-group">
-                        <input class="form-check-input" id="connaddress" type="checkbox" name="connaddress">
-                        <label class="form-label" for="connaddress">Same as User address</label>
-                    </div>
-                    
-                    <div class="form-group border border-1 rounded">
-                        <p class="h5 p-2 text-bold bg-light">
-                            Address
-                        </p>
-                        <div class="row m-0 p-1">
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="text" name="ConnAddress-Doorno" placeholder="Door No., Flat No." required>
-                            </div>
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="text" name="ConnAddress-Street" placeholder="Street name, Village, Town" required>
-                            </div>
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="text" name="ConnAddress-City" placeholder="City" required>
-                            </div>
-                        </div>
-                        <div class="row m-0 p-1">
-                            <div class="col-12 col-lg-6 p-1">
-                                <input class="form-control" type="text" name="ConnAddress-District" placeholder="District" required>
-                            </div>
-                            <div class="col-12 col-lg-6 p-1">
-                                <input class="form-control" type="text" name="ConnAddress-State" placeholder="state" required>
-                            </div>
-                        </div>
-                        <div class="row m-0 p-1">
-                            <div class="col-12 col-lg-4 p-1">
-                                <input class="form-control" type="number" name="ConnAddress-Pincode" placeholder="pincode" minlength="6" maxlength="6" pattern="[1-9]{1}[0-9]*" required>
-                            </div>
-                        </div>
-                    </div> 
-    
-                    <div class="form-group">
-                        <label for="preferredDate">Preferred Connection Date:</label>
-                        <input type="date" class="form-control" id="preferredDate" name="preferredDate">
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="meterType">Meter Type:</label>
-                        <select class="form-control" id="meterType" name="meterType">
-                            <option value="prepaid">Prepaid</option>
-                            <option value="postpaid">Postpaid</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-primary my-2" type="submit">Save Connection Details</button>
-                </div>
-            </li>
-        </form>
-    
-        <form id="documentsUploadForm">
-            <li class="list-group-item m-0 p-0">
-                <div class="w-100 bg-light p-3 py-4 row m-0">
-                    <a href="#DocumentsUpload" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="DocumentsUpload">Documents Upload</a>
-                </div>
-    
-                <div id="DocumentsUpload" class="collapse p-3">
-                    <div class="form-group my-2">
-                        <label class="form-label" for="Photo">Upload Photo: </label>
-                        <input class="form-control" id="Photo" type="file" name="Photo" required>
-                    </div>
-    
-                    <div class="form-group my-2">
-                        <label class="form-label" for="AadharCopy">Upload Aadhar: </label>
-                        <input class="form-control" id="AadharCopy" type="file" name="AadharCopy" required>
-                    </div>
-                    <div class="form-group my-2">
-                        <label class="form-label" for="addressProof">Address Proof: (Aadhar / Pancard / Voter ID / Driving License)</label>
-                        <input type="file" class="form-control" id="addressProof" name="addressProof" required>
-                    </div>
-                    <div class="form-group my-2">
-                        <label class="form-label" for="propertyProof">Property Ownership Proof (if applicable):</label>
-                        <input type="file" class="form-control" id="propertyProof" name="propertyProof">
-                    </div>
-                    <div class="form-group my-2">
-                        <label class="form-label" for="otherDocuments">Other Relevant Documents:</label>
-                        <input type="file" class="form-control" id="otherDocuments" name="otherDocuments">
-                    </div>
-                    <button class="btn btn-primary my-2" type="submit">Save Documents</button>
-                </div>
-            </li>
-        </form>
-    
-        <form id="agreementForm">
-            <li class="list-group-item m-0 p-0">
-                <div class="w-100 bg-light p-3 py-4 row m-0">
-                    <a href="#Agreement" class="col-12 text-dark text-decoration-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="Agreement">Agreement</a>
-                </div>
-                <div id="Agreement" class="collapse p-3">
-                    <div class="form-check my-2">
-                        <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
-                        <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
-                    </div>
-                    <div class="form-group my-2">
-                        <label for="signature">Digital Signature (if applicable):</label>
-                        <input type="text" class="form-control" id="signature" name="signature">
-                    </div>
-                    <button class="btn btn-primary my-2" type="submit">Save Agreement</button>
-                </div>
-            </li>
-        </form>
-    
-        <button class="btn btn-warning my-2" type="button" id="finalSubmit">Schedule Verification</button>
-    </main>
+            </div>
+        </div>
     </main>
     <footer class="position-sticky bottom-0 w-100 text-center p-2 bg-dark text-white">
         2024 Your Company. All rights reserved&reg;
