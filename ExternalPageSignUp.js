@@ -131,6 +131,8 @@ function removeConnection(index) {
 }
 
 function SessionSuccess() {
+    console.log("In session");
+    console.log(localStorage.getItem("sessionId"));
     if(localStorage.getItem("sessionId") === null){
         document.getElementById("HomeLink").classList.add("disabled");
         document.getElementById("MngConneLink").classList.add("disabled");
