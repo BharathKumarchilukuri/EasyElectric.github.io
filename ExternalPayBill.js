@@ -1,7 +1,7 @@
 function displayConnections() {
     let count = 0;
     let connectionList = document.getElementById("ConnectionList");
-    user.connectionDetails.forEach(function (connection) {
+    user.connections.forEach(function (connection) {
         var connectionHtml = `
             <li class="list-group-item">
             <div class="form-check">
@@ -39,7 +39,6 @@ let user;
 for (const iterator of JSON.parse(localStorage.getItem("allUserData"))) {
     if (userId == iterator.id) user = iterator;
 }
-console.log(user);
 let totalAmount = 0;
 
 function UpdatePay() {

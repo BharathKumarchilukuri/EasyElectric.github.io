@@ -99,9 +99,9 @@ function displayUserAccount(data) {
             const complaint = data.complaints[i];
             userHtml += `
                 <div class="mb-3 border p-3 rounded shadow-sm">
-                    <p><strong>ID:</strong> ${complaint.id}</p>
+                    <p><strong>ID:</strong> ${complaint.connectionId}</p>
                     <p><strong>Date:</strong> ${complaint.date}</p>
-                    <p><strong>Issue:</strong> ${complaint.issue}</p>
+                    <p><strong>Issue:</strong> ${complaint.reason}</p>
                     <p><strong>Status:</strong> ${complaint.status}</p>
                 </div>
             `;

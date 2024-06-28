@@ -18,9 +18,21 @@ const formHandler = {
     },
 
     submitAllData: function() {
-        console.log('Final Data:', this.data);
-        alert('You are making a payment');
-        AddApplication(this.data);
+        if(userDetailsForm && addressForm && connectionDetailsForm && documentsUploadForm && agreementForm) {
+            alert('You are making a payment');
+            AddApplication(this.data);
+        }
+        else {
+            let errorElements = document.getElementsByClassName("allErrorDiv");
+            for (const iterator of errorElements) {
+                iterator.style.display = "block";
+            }
+            setInterval(()=> {
+                for (const iterator of errorElements) {
+                    iterator.style.display = "none";
+                }
+            }, 10000);
+        }
     }
 };
 
@@ -40,35 +52,44 @@ function AddApplication(data){
             allUserData.push(iterator);
         }
     }
-    console.log(allUserData);
     localStorage.setItem("allUserData", JSON.stringify(allUserData));
     console.log(JSON.parse(localStorage.getItem("allUserData")));
 }
 
+let userDetailsForm = false;
+let addressForm = false;
+let connectionDetailsForm = false;
+let documentsUploadForm = false;
+let agreementForm = false;
 
 document.getElementById('userDetailsForm').addEventListener('submit', function(event) {
     event.preventDefault();
     formHandler.saveFormData('userDetailsForm');
+    userDetailsForm = true;
 });
 
 document.getElementById('addressForm').addEventListener('submit', function(event) {
     event.preventDefault();
     formHandler.saveFormData('addressForm');
+    addressForm = true;
 });
 
 document.getElementById('connectionDetailsForm').addEventListener('submit', function(event) {
     event.preventDefault();
     formHandler.saveFormData('connectionDetailsForm');
+    connectionDetailsForm = true;
 });
 
 document.getElementById('documentsUploadForm').addEventListener('submit', function(event) {
     event.preventDefault();
     formHandler.saveFormData('documentsUploadForm');
+    documentsUploadForm = true;
 });
 
 document.getElementById('agreementForm').addEventListener('submit', function(event) {
     event.preventDefault();
     formHandler.saveFormData('agreementForm');
+    agreementForm = true;
 });
 
 document.getElementById('finalSubmit').addEventListener('click', function(event) {
